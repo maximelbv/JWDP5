@@ -11,9 +11,9 @@ $borderColor :#E9EBF3;
 }
 
 body {
+    color: $textColor;
     font-family: 'Raleway', sans-serif;
     margin: auto;
-    padding: auto;
 }
 
 .header {
@@ -37,15 +37,24 @@ body {
 .footer {
     background: $bgColorGrey;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     width: auto;
     &FirstContainer {
-        padding: 115px 0 40px 0;
+        padding: 115px 80px 40px 80px;
         width: 1264px;
         display: flex;
         justify-content: space-between;
         position: relative;
         border-bottom: 2px solid $borderColor;
+    }
+    &SecondContainer {
+        padding: 20px 80px 40px 80px;
+        width: 1264px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #C5C5C5;
     }
 }
 
@@ -100,8 +109,25 @@ body {
 
 .phoneStoreBtns {
     position: absolute;
-    left: 0;
+    left: 80px;
     bottom: 20px;
     display: flex;
     & :nth-child(1) {margin-right: 5px;}
+}
+
+.legal {
+    & * {
+        color: $textColor;
+    }
+    & :nth-child(1) {
+        font-weight: 600;
+    }
+}
+
+.social {
+    list-style-type: none;
+    display: flex;
+    & * {
+        margin-left: 10px;
+    }
 }
