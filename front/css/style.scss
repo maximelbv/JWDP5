@@ -1,3 +1,53 @@
+$textColor : #2B2B2B;
+$bgColorGrey : #F5F5F5;
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+@mixin flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 body {
-    height: 100vh;
+    font-family: 'Raleway', sans-serif;
+    max-width: 1920px;
+    margin: auto;
+}
+
+.header {
+    @include flexCenter;
+    justify-content: space-between;
+    height: 100px;
+    &Logo {
+        padding-left: 5vw;
+    }
+    &Navigation {
+        padding-right: 5vw;
+    }
+    &Icon {
+        color: $textColor;
+        padding-right: 30px;
+    }
+}
+
+.footer {
+    background: $bgColorGrey;
+}
+
+/* Titles of the footer's lists */
+.list:before {                        
+    content: attr(aria-label);
+    font-size: 24px;
+    font-weight: 600;
+    color: $textColor;
+}
+
+.list {
+    list-style-type: none;
+    font-size: 20px;
+    & * {
+        color: $textColor;
+        margin: 27px 0;
+    }
 }
