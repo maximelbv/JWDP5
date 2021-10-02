@@ -1,6 +1,7 @@
 $textColor : #2B2B2B;
 $bgColorGrey : #F5F5F5;
 $borderColor :#E9EBF3;
+$orinocoLinkColor : #6888f3;
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
@@ -10,15 +11,23 @@ $borderColor :#E9EBF3;
     justify-content: center;
 }
 
+@mixin sectionWidth {
+    max-width: 1920px;
+    margin: auto;
+}
+
 body {
     color: $textColor;
     font-family: 'Raleway', sans-serif;
     margin: auto;
 }
 
+a {
+    text-decoration: none;
+}
+
 .header {
-    max-width: 1920px;
-    margin: auto;
+    @include sectionWidth;
     @include flexCenter;
     justify-content: space-between;
     height: 100px;
@@ -31,6 +40,14 @@ body {
     &Icon {
         color: $textColor;
         padding-right: 30px;
+    }
+}
+
+.hero {
+    background: #C2DEE0;
+    &Container {
+        height: 900px;
+        @include sectionWidth;
     }
 }
 
@@ -79,6 +96,31 @@ body {
         color: $textColor;
         margin: 27px 0;
     }
+}
+
+.list a, .legal a {
+    position: relative;
+    transition: color 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        right: 0;
+        width: 0;
+        height: 2px;
+        background-color: $orinocoLinkColor;
+        transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+}
+
+.list a:hover, .legal a:hover {
+    color: $orinocoLinkColor;
+}
+
+.list a:hover::before, .legal a:hover::before {
+    left: 0;
+    right: auto;
+    width: 100%;
 }
 
 .newsletter {
