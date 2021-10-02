@@ -1,0 +1,66 @@
+@media screen and (max-width: 481px) {
+   
+    @mixin flexCenter {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+   
+    .footer {
+        &FirstContainer {
+            padding: 40px 30px;
+            &Links {
+                flex-direction: column;
+                & * {
+                    width: 100%;
+                }
+            }
+        }
+        &SecondContainer {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    // .list {
+    //     & * {
+    //         margin: 20px 0;
+    //     }
+    // }
+
+    .newsletter {
+        width: 100%;
+        & p, li {
+            font-size: 15px;
+            margin: 10px 0;
+        }
+        &TextInput {
+            font-size: 15px;
+            width: calc(100% - 12px);
+            height: 50px;
+            padding: 0 0 0 10px;
+        }
+        &Btn {
+            height: 50px;
+        }
+    }
+
+    .phoneStoreBtns * {
+        margin-top: 10px;
+        height: 35px;
+    }
+
+    .legal {
+        @include flexCenter;
+        text-align: center;
+        flex-direction: column;
+    }
+    .social {
+        padding-inline-start: 0;
+        justify-content: flex-start;
+    }
+
+    .fa-facebook {
+        margin-left: 0;
+    }
+}

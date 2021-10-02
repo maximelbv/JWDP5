@@ -30,26 +30,33 @@ body {
 
 .footer {
   background: #F5F5F5;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: auto;
 }
 
 .footerFirstContainer {
   padding: 115px 80px 40px 80px;
-  width: 1264px;
+  max-width: 1280px;
+  margin: auto;
   display: flex;
   justify-content: space-between;
   position: relative;
   border-bottom: 2px solid #E9EBF3;
 }
 
+.footerFirstContainerLinks {
+  display: flex;
+}
+
+.footerFirstContainerLinks :nth-child(1) {
+  margin-right: 40px;
+}
+
 .footerSecondContainer {
   padding: 20px 80px 40px 80px;
-  width: 1264px;
+  max-width: 1280px;
+  margin: auto;
   display: flex;
   align-items: center;
+  justify-content: center;
   justify-content: space-between;
   color: #C5C5C5;
 }
@@ -80,7 +87,7 @@ body {
 }
 
 .newsletterTextInput {
-  width: 364px;
+  width: calc(100% - 27px);
   height: 68px;
   padding-left: 25px;
   margin-top: 10px;
@@ -92,7 +99,7 @@ body {
 }
 
 .newsletterBtn {
-  width: 391px;
+  width: 100%;
   height: 68px;
   margin: 0;
   font-family: 'Raleway', sans-serif;
