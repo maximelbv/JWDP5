@@ -7,6 +7,7 @@ body {
 
 a {
   text-decoration: none;
+  color: #2B2B2B;
 }
 
 .header {
@@ -40,6 +41,63 @@ a {
   height: 900px;
   max-width: 1920px;
   margin: auto;
+  overflow: hidden;
+}
+
+.carrousel {
+  height: 100%;
+  width: calc(100vw * 3);
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.carrouselItem {
+  float: left;
+  width: 100vw;
+  height: 100%;
+  scroll-snap-align: start;
+}
+
+#itemOne {
+  background: blue;
+}
+
+#itemTwo {
+  background: red;
+}
+
+#itemThree {
+  background: green;
+}
+
+.catalog {
+  max-width: 1920px;
+  margin: auto;
+}
+
+.catalogAnchor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  font-size: 20px;
+}
+
+.catalogList {
+  padding: 50px 140px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 536px);
+  justify-content: center;
+}
+
+.catalogListItem {
+  height: 640px;
+  background: #F5F5F5;
+  margin: 8px;
+}
+
+.fa-chevron-down {
+  padding-left: 5px;
 }
 
 .footer {

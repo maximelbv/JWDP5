@@ -3,6 +3,8 @@ $bgColorGrey : #F5F5F5;
 $borderColor :#E9EBF3;
 $orinocoLinkColor : #6888f3;
 
+$screenSize : 100vw;
+
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
 @mixin flexCenter {
@@ -24,6 +26,7 @@ body {
 
 a {
     text-decoration: none;
+    color: $textColor;
 }
 
 .header {
@@ -48,7 +51,49 @@ a {
     &Container {
         height: 900px;
         @include sectionWidth;
+        overflow: hidden;
     }
+}
+
+.carrousel {
+    height: 100%;
+    width: calc(#{$screenSize} * 3);
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    &Item {
+        float: left;
+        width: $screenSize;
+        height: 100%;
+        scroll-snap-align: start;
+    }
+}
+
+#itemOne {background:blue}
+#itemTwo {background:red}
+#itemThree {background:green}
+
+.catalog {
+    @include sectionWidth;
+    &Anchor {
+        @include flexCenter;
+        height: 80px;
+        font-size: 20px;
+    }
+    &List {
+        padding: 50px 140px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 536px);
+        justify-content: center;
+        &Item {
+            height: 640px;
+            background: $bgColorGrey;
+            margin: 8px;
+        }
+    }
+}
+
+.fa-chevron-down {
+    padding-left: 5px;
 }
 
 .footer {
