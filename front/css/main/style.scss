@@ -30,6 +30,8 @@ a {
     color: $textColor;
 }
 
+/* HEADER */
+
 .header {
     @include sectionWidth;
     @include flexCenter;
@@ -46,6 +48,8 @@ a {
         padding-right: 30px;
     }
 }
+
+/* MAIN */
 
 .hero {
     background: #C2DEE0;
@@ -102,10 +106,6 @@ a {
     }
 }
 
-// #itemOne {background:blue}
-// #itemTwo {background:red}
-// #itemThree {background:green}
-
 .catalog {
     @include sectionWidth;
     &Anchor {
@@ -140,6 +140,8 @@ a {
     padding-left: 5px;
 }
 
+/* FOOTER */
+
 .footer {
     background: $bgColorGrey;
     &FirstContainer {
@@ -157,6 +159,26 @@ a {
             }
         }
     }
+
+    &List {
+        &:before {                        
+            content: attr(aria-label);
+            font-size: 24px;
+            font-weight: 600;
+            color: $textColor;
+        }
+        margin-block-start: 0;
+        margin-block-end: 0;
+        padding-inline-start: 0;
+        list-style-type: none;
+        font-size: 20px;
+        & * {
+            color: $textColor;
+            margin: 27px 0;
+        }
+    }
+
+
     &SecondContainer {
         padding: 20px 80px 40px 80px;
         max-width: 1280px;
@@ -167,27 +189,8 @@ a {
     }
 }
 
-/* Titles of the footer's lists */
-.list:before {                        
-    content: attr(aria-label);
-    font-size: 24px;
-    font-weight: 600;
-    color: $textColor;
-}
 
-.list {
-    margin-block-start: 0;
-    margin-block-end: 0;
-    padding-inline-start: 0;
-    list-style-type: none;
-    font-size: 20px;
-    & * {
-        color: $textColor;
-        margin: 27px 0;
-    }
-}
-
-.list a, .legal a {
+.footerList a, .legal a {
     position: relative;
     transition: color 0.6s cubic-bezier(0.25, 1, 0.5, 1);
     &::before {
@@ -200,17 +203,16 @@ a {
         background-color: $orinocoLinkColor;
         transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
     }
+    &:hover {
+        color: $orinocoLinkColor;
+        &::before {
+            left: 0;
+            right: auto;
+            width: 100%;
+        }
+    }
 }
 
-.list a:hover, .legal a:hover {
-    color: $orinocoLinkColor;
-}
-
-.list a:hover::before, .legal a:hover::before {
-    left: 0;
-    right: auto;
-    width: 100%;
-}
 
 .newsletter {
     width: 400px;
