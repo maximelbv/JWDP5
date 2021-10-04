@@ -46,28 +46,56 @@ a {
 
 .carrousel {
   height: 100%;
-  width: calc(100vw * 3);
+  min-width: 100%;
+  max-width: calc(1920px * 3);
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
 }
 
 .carrouselItem {
   float: left;
-  width: 100vw;
+  min-width: 100%;
+  max-width: 1920px;
   height: 100%;
   scroll-snap-align: start;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-#itemOne {
-  background: blue;
+.carrouselItemInfo {
+  position: absolute;
+  bottom: 100px;
+  left: 100px;
 }
 
-#itemTwo {
-  background: red;
+.carrouselItemCategory {
+  font-size: 24px;
+  font-weight: bolder;
+  margin: 12px 0;
 }
 
-#itemThree {
-  background: green;
+.carrouselItemName {
+  font-size: 48px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.carrouselItemPrice {
+  font-size: 24px;
+  font-weight: bolder;
+  margin: 12px 0;
+}
+
+.carrouselItemMore {
+  margin-top: 60px;
+  display: inline-block;
+  background: #EFF6F7;
+  padding: 20px 70px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: bolder;
 }
 
 .catalog {

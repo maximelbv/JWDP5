@@ -2,8 +2,9 @@ $textColor : #2B2B2B;
 $bgColorGrey : #F5F5F5;
 $borderColor :#E9EBF3;
 $orinocoLinkColor : #6888f3;
+$btnColorBlue : #EFF6F7;
 
-$screenSize : 100vw;
+$screenSize : 1920px;
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
@@ -57,20 +58,53 @@ a {
 
 .carrousel {
     height: 100%;
-    width: calc(#{$screenSize} * 3);
+    min-width: 100%;
+    max-width: calc(#{$screenSize} * 3);
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     &Item {
         float: left;
-        width: $screenSize;
+        min-width: 100%;
+        max-width: $screenSize;
         height: 100%;
         scroll-snap-align: start;
+        position: relative;
+        @include flexCenter;
+        &Info {
+            position: absolute;
+            bottom: 100px;
+            left: 100px;
+        }
+        &Category {
+            font-size: 24px;
+            font-weight: bolder;
+            margin: 12px 0;
+        }
+        &Name {
+            font-size: 48px;
+            font-weight: 800;
+            margin: 0;
+        }
+        &Price {
+            font-size: 24px;
+            font-weight: bolder;
+            margin: 12px 0;
+        }
+        &More {
+            margin-top: 60px;
+            display: inline-block;
+            background: $btnColorBlue;
+            padding: 20px 70px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bolder;
+        }
     }
 }
 
-#itemOne {background:blue}
-#itemTwo {background:red}
-#itemThree {background:green}
+// #itemOne {background:blue}
+// #itemTwo {background:red}
+// #itemThree {background:green}
 
 .catalog {
     @include sectionWidth;
