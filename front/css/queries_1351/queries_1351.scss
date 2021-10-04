@@ -1,5 +1,17 @@
 @media screen and (max-width: 1351px) {
 
+    .carrousel {
+        &Item {
+            &Info {
+                bottom: 80px;
+                left: 60px;
+            }
+            &Img {
+                height: 60%;
+            }
+        }
+    }
+
     .catalog {
         &List {
             padding: 25px 20px;

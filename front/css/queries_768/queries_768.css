@@ -1,4 +1,14 @@
 @media screen and (max-width: 768px) {
+  .carrouselItem {
+    flex-direction: column-reverse;
+  }
+  .carrouselItemInfo {
+    margin-top: 40px;
+    transform: translateX(-30px);
+  }
+  .carrouselItemImg {
+    margin-left: 0;
+  }
   .catalogList {
     padding: 25px 30px;
     grid-template-columns: 1fr;

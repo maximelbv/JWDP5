@@ -1,4 +1,29 @@
 @media screen and (max-width: 481px) {
+  .headerIcon {
+    padding-right: 20px;
+  }
+  .heroContainer {
+    height: 800px;
+  }
+  .carrouselItemInfo {
+    transform: translateX(0px);
+  }
+  .carrouselItemCategory {
+    font-size: 20px;
+  }
+  .carrouselItemName {
+    font-size: 40px;
+  }
+  .carrouselItemPrice {
+    font-size: 20px;
+  }
+  .carrouselItemMore {
+    margin-top: 40px;
+  }
+  .carrouselItemImg {
+    height: auto;
+    width: 80%;
+  }
   .catalogList {
     padding: 25px 15px;
   }

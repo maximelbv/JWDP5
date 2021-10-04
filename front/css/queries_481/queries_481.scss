@@ -6,6 +6,42 @@
         justify-content: center;
     }
 
+    .header {
+        &Icon {
+            padding-right: 20px;
+        }
+    }
+
+    .hero {
+        &Container {
+            height: 800px;
+        }
+    }
+
+    .carrousel {
+        &Item {
+            &Info {
+                transform: translateX(0px);
+            }
+            &Category {
+                font-size: 20px;
+            }
+            &Name {
+                font-size: 40px;
+            }
+            &Price {
+                font-size: 20px;
+            }
+            &More {
+                margin-top: 40px;
+            }
+            &Img {
+                height: auto;
+                width: 80%;
+            }
+        }
+    }
+
     .catalog {
         &List {
             padding: 25px 15px;

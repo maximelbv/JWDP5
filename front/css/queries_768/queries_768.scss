@@ -1,5 +1,18 @@
 @media screen and (max-width: 768px) {
 
+    .carrousel {
+        &Item {
+            flex-direction: column-reverse;
+            &Info {
+                margin-top: 40px;
+                transform: translateX(-30px);
+            }
+            &Img {
+                margin-left: 0;
+            }
+        }
+    }
+
     .catalog {
         &List {
             padding: 25px 30px;
