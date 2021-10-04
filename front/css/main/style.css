@@ -94,6 +94,19 @@ a {
   height: 640px;
   background: #F5F5F5;
   margin: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.catalogListItem * {
+  margin-top: 20px;
+  font-weight: 800;
+}
+
+.catalogListItemName {
+  font-size: 28px;
 }
 
 .fa-chevron-down {

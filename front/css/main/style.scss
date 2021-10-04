@@ -88,6 +88,15 @@ a {
             height: 640px;
             background: $bgColorGrey;
             margin: 8px;
+            @include flexCenter;
+            flex-direction: column;
+            & * {
+                margin-top: 20px;
+                font-weight: 800;
+            }
+            &Name {
+                font-size: 28px;
+            }
         }
     }
 }
