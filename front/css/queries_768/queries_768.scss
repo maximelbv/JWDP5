@@ -1,5 +1,12 @@
 @media screen and (max-width: 768px) {
 
+    .catalog {
+        &List {
+            padding: 25px 30px;
+            grid-template-columns: 1fr;
+        }
+    }
+
     .footer {
         &FirstContainer {
             padding: 60px 40px 40px 40px;

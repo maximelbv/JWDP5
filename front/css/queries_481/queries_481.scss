@@ -5,6 +5,12 @@
         align-items: center;
         justify-content: center;
     }
+
+    .catalog {
+        &List {
+            padding: 25px 15px;
+        }
+    }
    
     .footer {
         &FirstContainer {
@@ -21,12 +27,6 @@
             align-items: center;
         }
     }
-
-    // .list {
-    //     & * {
-    //         margin: 20px 0;
-    //     }
-    // }
 
     .newsletter {
         width: 100%;

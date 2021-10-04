@@ -66,8 +66,8 @@ a {
 
 .carrouselItemInfo {
   position: absolute;
-  bottom: 100px;
-  left: 100px;
+  bottom: 160px;
+  left: 140px;
 }
 
 .carrouselItemCategory {
@@ -119,9 +119,10 @@ a {
 }
 
 .catalogListItem {
-  height: 640px;
+  height: auto;
   background: #F5F5F5;
   margin: 8px;
+  padding: 40px;
   display: flex;
   align-items: center;
   justify-content: center;

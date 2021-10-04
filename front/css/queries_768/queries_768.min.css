@@ -1,1 +1,1 @@
-@media screen and (max-width: 768px){.footerFirstContainer{padding:60px 40px 40px 40px}}
+@media screen and (max-width: 768px){.catalogList{padding:25px 30px;grid-template-columns:1fr}.footerFirstContainer{padding:60px 40px 40px 40px}}
