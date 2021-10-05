@@ -29,6 +29,7 @@ $screenSize : 1920px;
 }
 
 @mixin btnOne {
+    cursor: pointer;
     display: inline-block;
     background: $btnColorBlue;
     padding: 20px 70px;
@@ -181,6 +182,11 @@ a {
             }
             &Name {
                 font-size: $fontSizeXL;
+            }
+            &Img {
+                &Link {
+                    @include flexCenter;
+                }
             }
         }
     }
