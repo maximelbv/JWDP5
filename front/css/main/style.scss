@@ -3,6 +3,15 @@ $bgColorGrey : #F5F5F5;
 $borderColor :#E9EBF3;
 $orinocoLinkColor : #6888f3;
 $btnColorBlue : #EFF6F7;
+$bgArticle : #ADD4FF;
+
+$fontSizeS : 18px;
+$fontSizeM : 20px;
+$fontSizeL : 24px;
+$fontSizeXL : 28px;
+$fontSizeXXL : 48px;
+$fontSizeXXXL : 64px;
+
 
 $screenSize : 1920px;
 
@@ -17,6 +26,15 @@ $screenSize : 1920px;
 @mixin sectionWidth {
     max-width: 1920px;
     margin: auto;
+}
+
+@mixin btnOne {
+    display: inline-block;
+    background: $btnColorBlue;
+    padding: 20px 70px;
+    border-radius: 50px;
+    font-size: $fontSizeS;
+    font-weight: bolder;
 }
 
 body {
@@ -49,7 +67,7 @@ a {
     }
 }
 
-/* MAIN */
+/* MAIN HOME */
 
 .hero {
     background: #C2DEE0;
@@ -82,28 +100,23 @@ a {
             left: 140px;
         }
         &Category {
-            font-size: 24px;
+            font-size: $fontSizeL;
             font-weight: bolder;
             margin: 12px 0;
         }
         &Name {
-            font-size: 48px;
+            font-size: $fontSizeXXL;
             font-weight: 800;
             margin: 0;
         }
         &Price {
-            font-size: 24px;
+            font-size: $fontSizeL;
             font-weight: bolder;
             margin: 12px 0;
         }
         &More {
             margin-top: 60px;
-            display: inline-block;
-            background: $btnColorBlue;
-            padding: 20px 70px;
-            border-radius: 50px;
-            font-size: 18px;
-            font-weight: bolder;
+            @include btnOne;
         }
     }
     &Links {
@@ -148,7 +161,7 @@ a {
     &Anchor {
         @include flexCenter;
         height: 80px;
-        font-size: 20px;
+        font-size: $fontSizeM;
     }
     &List {
         padding: 50px 140px;
@@ -167,7 +180,7 @@ a {
                 font-weight: 800;
             }
             &Name {
-                font-size: 28px;
+                font-size: $fontSizeXL;
             }
         }
     }
@@ -175,6 +188,48 @@ a {
 
 .fa-chevron-down {
     padding-left: 5px;
+}
+
+/* MAIN ARTICLE */ 
+
+.articleMain {
+    @include sectionWidth;
+}
+
+.displayArticle {
+    max-width: 1108px;
+    background: $bgArticle;
+    @include flexCenter;
+    flex-direction: column;
+    & img {
+        margin-top: 140px
+    }
+    &Txt {
+        @include flexCenter;
+        justify-content: space-between;
+        font-weight: bolder;
+        width: 100%;
+        margin: 20px 0 80px 0;
+    }
+    &Info {
+        margin-left: 140px;
+        &Category {
+            font-size: $fontSizeL;
+            margin: 12px 0;
+        }
+        &Name {
+            font-size: $fontSizeXXL;
+            margin: 0;
+        }
+        &Price {
+            font-size: $fontSizeL;
+            margin: 12px 0;
+        }
+    }
+    &Btn {
+        margin-right: 140px;
+        @include btnOne;
+    }
 }
 
 /* FOOTER */
@@ -200,7 +255,7 @@ a {
     &List {
         &:before {                        
             content: attr(aria-label);
-            font-size: 24px;
+            font-size: $fontSizeL;
             font-weight: 600;
             color: $textColor;
         }
@@ -208,7 +263,7 @@ a {
         margin-block-end: 0;
         padding-inline-start: 0;
         list-style-type: none;
-        font-size: 20px;
+        font-size: $fontSizeM;
         & * {
             color: $textColor;
             margin: 27px 0;
@@ -260,7 +315,7 @@ a {
         margin-top: 10px;
         margin-bottom: 0;
         font-family: 'Raleway', sans-serif;
-        font-size: 18px;
+        font-size: $fontSizeS;
         opacity: 0.6;
         border: 2px solid $borderColor;
     }
@@ -271,7 +326,7 @@ a {
         height: 68px;
         margin: 0;
         font-family: 'Raleway', sans-serif;
-        font-size: 18px;
+        font-size: $fontSizeS;
         border: none;
         color: white;
         font-weight: bolder;
