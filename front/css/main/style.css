@@ -52,7 +52,7 @@ a {
   max-width: calc(1920px * 3);
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-  animation: carrouselAnimation 10s 2s ease-in-out infinite;
+  animation: carrouselAnimation 10s ease-in-out infinite;
   display: flex;
 }
 
@@ -116,6 +116,30 @@ a {
   border-radius: 50px;
   background: #F5F5F5;
   margin: 20px 5px;
+}
+
+@keyframes carrouselAnimation {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(0%);
+  }
+  30% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(-100%);
+  }
+  60% {
+    transform: translateX(-200%);
+  }
+  80% {
+    transform: translateX(-200%);
+  }
+  90% {
+    transform: translateX(0%);
+  }
 }
 
 .catalog {
@@ -259,6 +283,7 @@ a {
 }
 
 .newsletterBtn {
+  position: relative;
   cursor: pointer;
   width: 100%;
   height: 68px;
@@ -272,6 +297,15 @@ a {
   border-radius: 5px;
   box-shadow: rgba(108, 157, 243, 0.6) 0 24px 30px;
   background-image: linear-gradient(to right top, #8acbff, #77bcfe, #6aacfd, #659af9, #6888f3);
+}
+
+.newsletterBtn::before {
+  content: '';
+  display: inline-block;
+  height: 68px;
+  width: 400px;
+  position: absolute;
+  background-image: radial-gradient(circle, #00ff0a, #1be316, #24c81b, #29ae1e, #2a941f);
 }
 
 .phoneStoreBtns {
@@ -299,5 +333,10 @@ a {
 }
 
 .social * {
+  cursor: pointer;
   margin-left: 10px;
+}
+
+.social *:hover {
+  color: #2B2B2B;
 }
