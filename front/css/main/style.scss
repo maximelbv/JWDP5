@@ -38,6 +38,49 @@ $screenSize : 1920px;
     font-weight: bolder;
 }
 
+@mixin shineConditions {
+    position: relative;
+    overflow: hidden;
+}
+
+@mixin shine {
+    &:after {
+        content: "";
+        position: absolute;
+        top: -110%;
+        left: -210%;
+        width: 200%;
+        height: 200%;
+        opacity: 0;
+        transform: rotate(30deg);
+        background: rgba(255, 255, 255, 0.13);
+        background: linear-gradient(
+          to right, 
+          rgba(255, 255, 255, 0.13) 0%,
+          rgba(255, 255, 255, 0.13) 77%,
+          rgba(255, 255, 255, 0.5) 92%,
+          rgba(255, 255, 255, 0.0) 100%
+        );
+      }
+    &:hover:after {
+        opacity: 1;
+        top: -30%;
+        left: -30%;
+        transition-property: left, top, opacity;
+        transition-duration: 0.7s, 0.7s, 0.15s;
+        transition-timing-function: ease;
+      }
+}
+
+@mixin labelTitle {
+    &::before {
+        content: attr(aria-label);
+        font-size: $fontSizeL;
+        font-weight: 600;
+        color: $textColor;
+    }
+}
+
 body {
     color: $textColor;
     font-family: 'Raleway', sans-serif;
@@ -200,6 +243,7 @@ a {
 
 .articleMain {
     @include sectionWidth;
+    display: flex;
 }
 
 .displayArticle {
@@ -218,7 +262,7 @@ a {
         margin: 20px 0 80px 0;
     }
     &Info {
-        margin-left: 140px;
+        margin-left: 10%;
         &Category {
             font-size: $fontSizeL;
             margin: 12px 0;
@@ -233,10 +277,49 @@ a {
         }
     }
     &Btn {
-        margin-right: 140px;
+        margin-right: 10%;
         @include btnOne;
     }
 }
+
+.informations {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 812px;
+    & > div {
+        padding: 0 10%;
+    }
+    &Colors {
+        @include labelTitle;
+        @include flexCenter;
+        position: relative;
+        justify-content: flex-start;
+        margin-bottom: 50px;
+        &::before {
+            position: absolute;
+            bottom: 45px;
+        }
+        &Color {
+            @include shineConditions;
+            @include shine;
+            cursor: pointer;
+            margin: 0 10px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50px;
+            &One {background: tan; margin-left: 0;}
+            &Two {background: chocolate;}
+            &Three {background: black;}
+            &Four {background: white;}
+        }
+    }
+    &Description {
+        @include labelTitle;
+        &Desc {}
+    }
+}
+
 
 /* FOOTER */
 
@@ -259,12 +342,7 @@ a {
     }
 
     &List {
-        &:before {                        
-            content: attr(aria-label);
-            font-size: $fontSizeL;
-            font-weight: 600;
-            color: $textColor;
-        }
+        @include labelTitle;
         margin-block-start: 0;
         margin-block-end: 0;
         padding-inline-start: 0;
@@ -340,14 +418,6 @@ a {
         border-radius: 5px;
         box-shadow: rgba(108,157,243,0.6) 0 24px 30px;
         background-image: linear-gradient(to right top, #8acbff, #77bcfe, #6aacfd, #659af9, #6888f3);
-        &::before {
-            content: '';
-            display: inline-block;
-            height: 68px;
-            width: 400px;
-            position: absolute;
-            background-image: radial-gradient(circle, #00ff0a, #1be316, #24c81b, #29ae1e, #2a941f);
-        }
     }
 }
 

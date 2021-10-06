@@ -27,6 +27,20 @@
   .catalogList {
     padding: 25px 15px;
   }
+  .displayArticle img {
+    margin-top: 50px;
+    width: 80%;
+  }
+  .displayArticleTxt {
+    flex-direction: column;
+  }
+  .displayArticleInfo {
+    text-align: center;
+    margin: 25px 0 50px 0;
+  }
+  .displayArticleBtn {
+    margin-right: 0;
+  }
   .footerFirstContainer {
     padding: 40px 30px;
   }

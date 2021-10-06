@@ -10,4 +10,7 @@
     padding: 25px 20px;
     grid-template-columns: repeat(2, 1fr);
   }
+  .displayArticleBtn {
+    padding: 20px 35px;
+  }
 }

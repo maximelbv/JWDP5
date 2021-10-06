@@ -47,6 +47,23 @@
             padding: 25px 15px;
         }
     }
+
+    .displayArticle {
+        & img {
+            margin-top: 50px;
+            width: 80%;
+        }
+        &Txt {
+            flex-direction: column;
+        }
+        &Info {
+            text-align: center;
+            margin: 25px 0 50px 0;
+        }
+        &Btn {
+            margin-right: 0;
+        }
+    }
    
     .footer {
         &FirstContainer {

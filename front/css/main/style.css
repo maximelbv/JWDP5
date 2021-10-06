@@ -197,6 +197,7 @@ a {
 .articleMain {
   max-width: 1920px;
   margin: auto;
+  display: flex;
 }
 
 .displayArticle {
@@ -223,7 +224,7 @@ a {
 }
 
 .displayArticleInfo {
-  margin-left: 140px;
+  margin-left: 10%;
 }
 
 .displayArticleInfoCategory {
@@ -242,7 +243,7 @@ a {
 }
 
 .displayArticleBtn {
-  margin-right: 140px;
+  margin-right: 10%;
   cursor: pointer;
   display: inline-block;
   background: #EFF6F7;
@@ -250,6 +251,94 @@ a {
   border-radius: 50px;
   font-size: 18px;
   font-weight: bolder;
+}
+
+.informations {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 812px;
+}
+
+.informations > div {
+  padding: 0 10%;
+}
+
+.informationsColors {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  justify-content: flex-start;
+  margin-bottom: 50px;
+}
+
+.informationsColors::before {
+  content: attr(aria-label);
+  font-size: 24px;
+  font-weight: 600;
+  color: #2B2B2B;
+}
+
+.informationsColors::before {
+  position: absolute;
+  bottom: 45px;
+}
+
+.informationsColorsColor {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  margin: 0 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+}
+
+.informationsColorsColor:after {
+  content: "";
+  position: absolute;
+  top: -110%;
+  left: -210%;
+  width: 200%;
+  height: 200%;
+  opacity: 0;
+  transform: rotate(30deg);
+  background: rgba(255, 255, 255, 0.13);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.13) 0%, rgba(255, 255, 255, 0.13) 77%, rgba(255, 255, 255, 0.5) 92%, rgba(255, 255, 255, 0) 100%);
+}
+
+.informationsColorsColor:hover:after {
+  opacity: 1;
+  top: -30%;
+  left: -30%;
+  transition-property: left, top, opacity;
+  transition-duration: 0.7s, 0.7s, 0.15s;
+  transition-timing-function: ease;
+}
+
+.informationsColorsColorOne {
+  background: tan;
+  margin-left: 0;
+}
+
+.informationsColorsColorTwo {
+  background: chocolate;
+}
+
+.informationsColorsColorThree {
+  background: black;
+}
+
+.informationsColorsColorFour {
+  background: white;
+}
+
+.informationsDescription::before {
+  content: attr(aria-label);
+  font-size: 24px;
+  font-weight: 600;
+  color: #2B2B2B;
 }
 
 /* FOOTER */
@@ -283,7 +372,7 @@ a {
   font-size: 20px;
 }
 
-.footerList:before {
+.footerList::before {
   content: attr(aria-label);
   font-size: 24px;
   font-weight: 600;
@@ -363,15 +452,6 @@ a {
   border-radius: 5px;
   box-shadow: rgba(108, 157, 243, 0.6) 0 24px 30px;
   background-image: linear-gradient(to right top, #8acbff, #77bcfe, #6aacfd, #659af9, #6888f3);
-}
-
-.newsletterBtn::before {
-  content: '';
-  display: inline-block;
-  height: 68px;
-  width: 400px;
-  position: absolute;
-  background-image: radial-gradient(circle, #00ff0a, #1be316, #24c81b, #29ae1e, #2a941f);
 }
 
 .phoneStoreBtns {
