@@ -64,6 +64,12 @@
             margin-right: 0;
         }
     }
+
+    .informations {
+        & a {
+            padding: 20px 35px;
+        }
+    }
    
     .footer {
         &FirstContainer {

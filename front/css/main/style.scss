@@ -2,7 +2,6 @@ $textColor : #2B2B2B;
 $bgColorGrey : #F5F5F5;
 $borderColor :#E9EBF3;
 $orinocoLinkColor : #6888f3;
-$btnColorBlue : #EFF6F7;
 $bgArticle : #ADD4FF;
 
 $fontSizeS : 18px;
@@ -31,7 +30,17 @@ $screenSize : 1920px;
 @mixin btnOne {
     cursor: pointer;
     display: inline-block;
-    background: $btnColorBlue;
+    background: #EFF6F7;
+    padding: 20px 70px;
+    border-radius: 50px;
+    font-size: $fontSizeS;
+    font-weight: bolder;
+}
+
+@mixin btnTwo {
+    cursor: pointer;
+    display: inline-block;
+    background: #FBB03B;
     padding: 20px 70px;
     border-radius: 50px;
     font-size: $fontSizeS;
@@ -90,6 +99,11 @@ body {
 a {
     text-decoration: none;
     color: $textColor;
+}
+
+.returnHome {
+    @include btnTwo;
+    @include flexCenter;
 }
 
 /* HEADER */
@@ -316,7 +330,11 @@ a {
     }
     &Description {
         @include labelTitle;
-        &Desc {}
+    }
+    & a {
+        width: 150px;
+        align-self: center;
+        margin-top: 100px;
     }
 }
 

@@ -10,6 +10,19 @@ a {
   color: #2B2B2B;
 }
 
+.returnHome {
+  cursor: pointer;
+  display: inline-block;
+  background: #FBB03B;
+  padding: 20px 70px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: bolder;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* HEADER */
 .header {
   max-width: 1920px;
@@ -339,6 +352,12 @@ a {
   font-size: 24px;
   font-weight: 600;
   color: #2B2B2B;
+}
+
+.informations a {
+  width: 150px;
+  align-self: center;
+  margin-top: 100px;
 }
 
 /* FOOTER */
