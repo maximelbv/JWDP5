@@ -89,34 +89,3 @@ $screenSize : 1920px;
         color: $textColor;
     }
 }
-
-
-@media screen and (max-width: 1351px) {
-
-    .carrousel {
-        &Item {
-            &Info {
-                bottom: 80px;
-                left: 60px;
-            }
-            &Img {
-                height: 60%;
-            }
-        }
-    }
-
-    .catalog {
-        &List {
-            padding: 25px 20px;
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-
-    .displayArticle {
-        &Btn {
-            padding: 20px 35px;
-        }
-    }
-
-}
-

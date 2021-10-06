@@ -338,6 +338,23 @@ a {
     }
 }
 
+/* MAIN CONFIRMATION / CANCELLATION */
+
+.mainConfirmCancel {
+    @include sectionWidth;
+    @include flexCenter;
+    flex-direction: column;
+    margin: 15% 0;
+    &Sentence {
+        font-size: $fontSizeXL;
+        margin: 0;
+        text-align: center;
+    }
+    &Subtile {
+        text-align: center;
+    }
+}
+
 
 /* FOOTER */
 
