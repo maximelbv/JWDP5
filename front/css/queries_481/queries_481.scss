@@ -158,10 +158,16 @@ $screenSize : 1920px;
         }
     }
    
-    .mainConfirmCancel {
+    .mainConfirm, .mainCancel, .mainEmptyCart {
         margin: 20% 0;
         &Sentence {
             font-size: $fontSizeS;
+        }
+    }
+
+    .main404 {
+        &Sentence {
+            font-size: $fontSizeXXL;
         }
     }
 

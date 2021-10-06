@@ -45,11 +45,14 @@
   .informations a {
     padding: 20px 35px;
   }
-  .mainConfirmCancel {
+  .mainConfirm, .mainCancel, .mainEmptyCart {
     margin: 20% 0;
   }
-  .mainConfirmCancelSentence {
+  .mainConfirmSentence, .mainCancelSentence, .mainEmptyCartSentence {
     font-size: 18px;
+  }
+  .main404Sentence {
+    font-size: 48px;
   }
   .footerFirstContainer {
     padding: 40px 30px;

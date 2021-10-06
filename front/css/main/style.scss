@@ -90,6 +90,22 @@ $screenSize : 1920px;
     }
 }
 
+@mixin displayInfo {
+    @include sectionWidth;
+    @include flexCenter;
+    flex-direction: column;
+    margin: 15% 0;
+    min-height: 50vh;
+    &Sentence {
+        font-size: $fontSizeXL;
+        margin: 0;
+        text-align: center;
+    }
+    &Subtile {
+        text-align: center;
+    }
+}
+
 body {
     color: $textColor;
     font-family: 'Raleway', sans-serif;
@@ -338,20 +354,22 @@ a {
     }
 }
 
-/* MAIN CONFIRMATION / CANCELLATION */
+/* MAIN CONFIRMATION / CANCELLATION / EMPTY CART / 404 */
 
-.mainConfirmCancel {
-    @include sectionWidth;
-    @include flexCenter;
-    flex-direction: column;
-    margin: 15% 0;
+.mainConfirm {@include displayInfo;}
+
+.mainCancel {@include displayInfo;}
+
+.mainEmptyCart {
+    @include displayInfo;
+    &Icon {margin: 20px 0}
+}
+
+.main404 {
+    @include displayInfo;
     &Sentence {
-        font-size: $fontSizeXL;
+        font-size : 100px;
         margin: 0;
-        text-align: center;
-    }
-    &Subtile {
-        text-align: center;
     }
 }
 

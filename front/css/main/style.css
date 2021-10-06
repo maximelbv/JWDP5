@@ -360,8 +360,8 @@ a {
   margin-top: 100px;
 }
 
-/* MAIN CONFIRMATION / CANCELLATION */
-.mainConfirmCancel {
+/* MAIN CONFIRMATION / CANCELLATION / EMPTY CART / 404 */
+.mainConfirm {
   max-width: 1920px;
   margin: auto;
   display: flex;
@@ -369,16 +369,89 @@ a {
   justify-content: center;
   flex-direction: column;
   margin: 15% 0;
+  min-height: 50vh;
 }
 
-.mainConfirmCancelSentence {
+.mainConfirmSentence {
   font-size: 28px;
   margin: 0;
   text-align: center;
 }
 
-.mainConfirmCancelSubtile {
+.mainConfirmSubtile {
   text-align: center;
+}
+
+.mainCancel {
+  max-width: 1920px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 15% 0;
+  min-height: 50vh;
+}
+
+.mainCancelSentence {
+  font-size: 28px;
+  margin: 0;
+  text-align: center;
+}
+
+.mainCancelSubtile {
+  text-align: center;
+}
+
+.mainEmptyCart {
+  max-width: 1920px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 15% 0;
+  min-height: 50vh;
+}
+
+.mainEmptyCartSentence {
+  font-size: 28px;
+  margin: 0;
+  text-align: center;
+}
+
+.mainEmptyCartSubtile {
+  text-align: center;
+}
+
+.mainEmptyCartIcon {
+  margin: 20px 0;
+}
+
+.main404 {
+  max-width: 1920px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 15% 0;
+  min-height: 50vh;
+}
+
+.main404Sentence {
+  font-size: 28px;
+  margin: 0;
+  text-align: center;
+}
+
+.main404Subtile {
+  text-align: center;
+}
+
+.main404Sentence {
+  font-size: 100px;
+  margin: 0;
 }
 
 /* FOOTER */
