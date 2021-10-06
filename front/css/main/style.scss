@@ -354,6 +354,101 @@ a {
     }
 }
 
+/* CART */
+
+.cartMain {
+    @include sectionWidth;
+    display: flex;
+    align-items: flex-start;
+}
+
+.cart {
+    width: 50vw;
+    @include flexCenter;
+    flex-direction: column;
+    padding: 80px 10%;
+    &Title {
+        width: 100%;
+        font-size: $fontSizeXL;
+        align-self: flex-start;
+        &::after {
+            content: '';
+            display: inline-block;
+            height: 2px;
+            width: 100%;
+            background: $textColor;
+        }
+    }
+    &Item {
+        @include flexCenter;
+        width: 100%;
+        justify-content: space-between;
+        margin: 10px 0;
+        &Image {
+            @include flexCenter;
+            width: 60px;
+            height: 60px;
+            background: $bgColorGrey;
+            border-radius: 50px;
+            & img {
+                width: 70%;
+            }
+        }
+    }
+    &Total {
+        @include flexCenter;
+        justify-content: space-between;
+        width: 100%;
+        position: relative;
+        &Name, &Value {
+            font-size: $fontSizeL;
+            font-weight: bolder;
+        }
+        &::before {
+            content: '';
+            display: inline-block;
+            height: 2px;
+            width: 100%;
+            background: $textColor;
+            position: absolute;
+            top: 10px;
+        }
+    }
+}
+
+.checkout {
+    width: 50vw;
+    height: 100%;
+    @include flexCenter;
+    flex-direction: column;
+    background: $bgColorGrey;
+    padding: 50px 0;
+    &Title {
+        font-size: $fontSizeL
+    }
+    &Name, &Contact, &Card, &Adress {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        margin: 25px 0;
+        & i {
+            margin-bottom: 10px;
+        }
+    }
+    &Input {
+        margin: 10px 0;
+        padding: 15px;
+        border: none;
+        border-radius: 10px;
+        font-family: 'Raleway', sans-serif;
+        color: $textColor;
+        font-weight: bolder;
+    }
+    &Btn {
+        @include btnTwo;
+    }
+}
+
 /* MAIN CONFIRMATION / CANCELLATION / EMPTY CART / 404 */
 
 .mainConfirm {@include displayInfo;}

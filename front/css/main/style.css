@@ -360,6 +360,130 @@ a {
   margin-top: 100px;
 }
 
+/* CART */
+.cartMain {
+  max-width: 1920px;
+  margin: auto;
+  display: flex;
+  align-items: flex-start;
+}
+
+.cart {
+  width: 50vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 80px 10%;
+}
+
+.cartTitle {
+  width: 100%;
+  font-size: 28px;
+  align-self: flex-start;
+}
+
+.cartTitle::after {
+  content: '';
+  display: inline-block;
+  height: 2px;
+  width: 100%;
+  background: #2B2B2B;
+}
+
+.cartItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.cartItemImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: #F5F5F5;
+  border-radius: 50px;
+}
+
+.cartItemImage img {
+  width: 70%;
+}
+
+.cartTotal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+}
+
+.cartTotalName, .cartTotalValue {
+  font-size: 24px;
+  font-weight: bolder;
+}
+
+.cartTotal::before {
+  content: '';
+  display: inline-block;
+  height: 2px;
+  width: 100%;
+  background: #2B2B2B;
+  position: absolute;
+  top: 10px;
+}
+
+.checkout {
+  width: 50vw;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: #F5F5F5;
+  padding: 50px 0;
+}
+
+.checkoutTitle {
+  font-size: 24px;
+}
+
+.checkoutName, .checkoutContact, .checkoutCard, .checkoutAdress {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  margin: 25px 0;
+}
+
+.checkoutName i, .checkoutContact i, .checkoutCard i, .checkoutAdress i {
+  margin-bottom: 10px;
+}
+
+.checkoutInput {
+  margin: 10px 0;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Raleway', sans-serif;
+  color: #2B2B2B;
+  font-weight: bolder;
+}
+
+.checkoutBtn {
+  cursor: pointer;
+  display: inline-block;
+  background: #FBB03B;
+  padding: 20px 70px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: bolder;
+}
+
 /* MAIN CONFIRMATION / CANCELLATION / EMPTY CART / 404 */
 .mainConfirm {
   max-width: 1920px;
