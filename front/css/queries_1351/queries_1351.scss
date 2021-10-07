@@ -118,5 +118,22 @@ $screenSize : 1920px;
         }
     }
 
+    .cart {
+        padding: 80px 5%;
+    }
+
+    .checkout {
+        &Name, 
+        &Contact, 
+        &Card, 
+        &Adress {
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            margin: 25px 0;
+        }
+
+    }
+
 }
 

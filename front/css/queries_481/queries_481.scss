@@ -157,6 +157,21 @@ $screenSize : 1920px;
             padding: 20px 35px;
         }
     }
+
+    .cart {
+        width: 80%;
+        padding: 20px 10%;
+        & a {
+            padding: 20px 25px;
+        }
+    }
+
+    .checkout {
+        &Title {
+            margin: 0;
+            margin-bottom: 10px;
+        }
+    }
    
     .mainConfirm, .mainCancel, .mainEmptyCart {
         margin: 20% 0;
@@ -178,6 +193,10 @@ $screenSize : 1920px;
                 flex-direction: column;
                 & * {
                     width: 100%;
+                    margin: 15px 0;
+                }
+                & li {
+                    font-size: $fontSizeS;
                 }
             }
         }

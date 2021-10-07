@@ -14,4 +14,13 @@
   .displayArticleBtn {
     padding: 20px 35px;
   }
+  .cart {
+    padding: 80px 5%;
+  }
+  .checkoutName, .checkoutContact, .checkoutCard, .checkoutAdress {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin: 25px 0;
+  }
 }

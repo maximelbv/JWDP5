@@ -114,6 +114,28 @@ $screenSize : 1920px;
         max-width: 100%;
     }
 
+    .cartMain {
+        flex-direction: column;
+    }
+
+    .cart {
+        width: 90%;
+        padding: 20px 5%;
+        & a {
+            margin: 25px 0;
+        }
+    }
+
+    .checkout {
+        width: 100%;
+        // &Name,
+        // &Contact,
+        // &Card,
+        // &Adress {
+        //     width: 80%;
+        // }
+    }
+
     .footer {
         &FirstContainer {
             flex-direction: column;

@@ -14,6 +14,19 @@
     margin: 100px 0 50px 0;
     max-width: 100%;
   }
+  .cartMain {
+    flex-direction: column;
+  }
+  .cart {
+    width: 90%;
+    padding: 20px 5%;
+  }
+  .cart a {
+    margin: 25px 0;
+  }
+  .checkout {
+    width: 100%;
+  }
   .footerFirstContainer {
     flex-direction: column;
   }

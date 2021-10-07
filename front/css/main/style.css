@@ -454,7 +454,7 @@ a {
 }
 
 .checkoutName, .checkoutContact, .checkoutCard, .checkoutAdress {
-  width: 60%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   margin: 25px 0;
@@ -632,12 +632,14 @@ a {
   color: #C5C5C5;
 }
 
-.footerList a, .legal a {
+.footerList a,
+.legal a {
   position: relative;
   transition: color 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.footerList a::before, .legal a::before {
+.footerList a::before,
+.legal a::before {
   content: '';
   position: absolute;
   bottom: -5px;
@@ -648,11 +650,13 @@ a {
   transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.footerList a:hover, .legal a:hover {
+.footerList a:hover,
+.legal a:hover {
   color: #6888f3;
 }
 
-.footerList a:hover::before, .legal a:hover::before {
+.footerList a:hover::before,
+.legal a:hover::before {
   left: 0;
   right: auto;
   width: 100%;
