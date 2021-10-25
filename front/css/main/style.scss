@@ -111,7 +111,6 @@ $screenSize : 1920px;
 }
 
 
-
 body {
     color: $textColor;
     font-family: 'Raleway', sans-serif;
@@ -126,6 +125,7 @@ a {
 .returnHome {
     @include btnTwo;
     @include flexCenter;
+    margin-bottom: 50px;
 }
 
 /* HEADER */
@@ -242,6 +242,11 @@ a {
         @include flexCenter;
         height: 80px;
         font-size: $fontSizeM;
+        scroll-behavior: smooth;
+        &:active {
+            color: red;
+            transition: 2s ease-in-out;
+        }
     }
     &List {
         padding: 50px 140px;
@@ -479,6 +484,11 @@ a {
         font-size : 100px;
         margin: 0;
     }
+}
+
+.anim404 {
+    width: 500px;
+    height: 350px;
 }
 
 

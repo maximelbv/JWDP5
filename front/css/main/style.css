@@ -21,6 +21,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 50px;
 }
 
 /* HEADER */
@@ -167,6 +168,12 @@ a {
   justify-content: center;
   height: 80px;
   font-size: 20px;
+  scroll-behavior: smooth;
+}
+
+.catalogAnchor:active {
+  color: red;
+  transition: 2s ease-in-out;
 }
 
 .catalogList {
@@ -594,6 +601,11 @@ a {
 .main404Sentence {
   font-size: 100px;
   margin: 0;
+}
+
+.anim404 {
+  width: 500px;
+  height: 350px;
 }
 
 /* FOOTER */
