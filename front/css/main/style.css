@@ -31,7 +31,7 @@ a {
   align-items: center;
   justify-content: center;
   justify-content: space-between;
-  height: 100px;
+  height: 80px;
 }
 
 .headerLogo {
@@ -53,7 +53,7 @@ a {
 }
 
 .heroContainer {
-  height: 900px;
+  height: 850px;
   max-width: 1920px;
   margin: auto;
   overflow: hidden;
@@ -492,8 +492,9 @@ a {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin: 15% 0;
   min-height: 50vh;
+  position: relative;
+  padding-bottom: 10%;
 }
 
 .mainConfirmSentence {
@@ -506,6 +507,11 @@ a {
   text-align: center;
 }
 
+.mainConfirmAnim {
+  position: absolute;
+  z-index: -1;
+}
+
 .mainCancel {
   max-width: 1920px;
   margin: auto;
@@ -513,7 +519,6 @@ a {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin: 15% 0;
   min-height: 50vh;
 }
 
@@ -527,6 +532,11 @@ a {
   text-align: center;
 }
 
+.mainCancelAnim {
+  position: absolute;
+  z-index: -1;
+}
+
 .mainEmptyCart {
   max-width: 1920px;
   margin: auto;
@@ -534,7 +544,6 @@ a {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin: 15% 0;
   min-height: 50vh;
 }
 
@@ -548,6 +557,11 @@ a {
   text-align: center;
 }
 
+.mainEmptyCartAnim {
+  position: absolute;
+  z-index: -1;
+}
+
 .mainEmptyCartIcon {
   margin: 20px 0;
 }
@@ -559,7 +573,6 @@ a {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin: 15% 0;
   min-height: 50vh;
 }
 
@@ -571,6 +584,11 @@ a {
 
 .main404Subtile {
   text-align: center;
+}
+
+.main404Anim {
+  position: absolute;
+  z-index: -1;
 }
 
 .main404Sentence {

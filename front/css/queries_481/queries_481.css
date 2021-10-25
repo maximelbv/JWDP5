@@ -57,10 +57,14 @@
     margin-bottom: 10px;
   }
   .mainConfirm, .mainCancel, .mainEmptyCart {
-    margin: 20% 0;
+    margin: 0;
   }
   .mainConfirmSentence, .mainCancelSentence, .mainEmptyCartSentence {
     font-size: 18px;
+  }
+  .returnHome {
+    margin-top: 50px;
+    padding: 20px;
   }
   .main404Sentence {
     font-size: 48px;

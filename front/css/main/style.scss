@@ -95,7 +95,6 @@ $screenSize : 1920px;
     @include sectionWidth;
     @include flexCenter;
     flex-direction: column;
-    margin: 15% 0;
     min-height: 50vh;
     &Sentence {
         font-size: $fontSizeXL;
@@ -105,7 +104,13 @@ $screenSize : 1920px;
     &Subtile {
         text-align: center;
     }
+    &Anim {
+        position: absolute;
+        z-index: -1;
+    }
 }
+
+
 
 body {
     color: $textColor;
@@ -129,7 +134,7 @@ a {
     @include sectionWidth;
     @include flexCenter;
     justify-content: space-between;
-    height: 100px;
+    height: 80px;
     &Logo {
         padding-left: 5vw;
     }
@@ -147,7 +152,7 @@ a {
 .hero {
     background: #C2DEE0;
     &Container {
-        height: 900px;
+        height: 850px;
         @include sectionWidth;
         overflow: hidden;
     }
@@ -455,7 +460,11 @@ a {
 
 /* MAIN CONFIRMATION / CANCELLATION / EMPTY CART / 404 */
 
-.mainConfirm {@include displayInfo;}
+.mainConfirm {
+    @include displayInfo;
+    position: relative;
+    padding-bottom: 10%;
+}
 
 .mainCancel {@include displayInfo;}
 

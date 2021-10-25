@@ -174,10 +174,15 @@ $screenSize : 1920px;
     }
    
     .mainConfirm, .mainCancel, .mainEmptyCart {
-        margin: 20% 0;
+        margin: 0;
         &Sentence {
             font-size: $fontSizeS;
         }
+    }
+
+    .returnHome {
+        margin-top: 50px;
+        padding: 20px;
     }
 
     .main404 {
