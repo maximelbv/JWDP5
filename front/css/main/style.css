@@ -226,11 +226,11 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: column-reverse;
 }
 
 .displayArticle img {
-  margin-top: 140px;
+  margin: 140px 0 50px 0;
 }
 
 .displayArticleTxt {
@@ -253,7 +253,7 @@ a {
 }
 
 .displayArticleInfoName {
-  font-size: 48px;
+  font-size: 28px;
   margin: 0;
 }
 
