@@ -313,6 +313,7 @@ a {
   width: 30px;
   height: 30px;
   border-radius: 50px;
+  border: 2px solid black;
 }
 
 .informationsColorsColor:after {
@@ -337,9 +338,12 @@ a {
   transition-timing-function: ease;
 }
 
+.informationsColorsColor:nth-child(1) {
+  margin-left: 0;
+}
+
 .informationsColorsColorOne {
   background: tan;
-  margin-left: 0;
 }
 
 .informationsColorsColorTwo {

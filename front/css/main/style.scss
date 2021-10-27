@@ -349,7 +349,11 @@ a {
             width: 30px;
             height: 30px;
             border-radius: 50px;
-            &One {background: tan; margin-left: 0;}
+            border: 2px solid black;
+            &:nth-child(1) {
+                margin-left: 0;
+            }
+            &One {background: tan; }
             &Two {background: chocolate;}
             &Three {background: black;}
             &Four {background: white;}
