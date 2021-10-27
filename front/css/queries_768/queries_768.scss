@@ -94,9 +94,16 @@
 
 @media screen and (max-width: 768px) {
 
+    .heroContainer {
+        height: auto;
+    }
+
     .carrousel {
+        height: auto;
         &Item {
-            flex-direction: column-reverse;
+            max-width: 80%;
+            height: 80%;
+            margin: 25px 0;
             &Info {
                 margin-top: 40px;
                 transform: translateX(-30px);

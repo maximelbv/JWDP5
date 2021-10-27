@@ -11,7 +11,7 @@ function displayCarrousel(res) {
     document.querySelector('.carrousel').appendChild(item);
 
     let itemInfos = document.createElement('div');            
-    itemInfos.classList.add('carrouselItemInfos');            
+    itemInfos.classList.add('carrouselItemInfo');            
     item.appendChild(itemInfos);                              
 
     let name = document.createElement('p');
@@ -33,7 +33,8 @@ function displayCarrousel(res) {
     let img = document.createElement('img');
     img.classList.add('carrouselItemImg');
     img.setAttribute('src', res.imageUrl);
-    img.setAttribute('height', '70%');
+    img.setAttribute('height', '500px');
+    // img.setAttribute('width', '500px');
     item.appendChild(img);
 
 }

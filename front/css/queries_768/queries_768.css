@@ -1,7 +1,15 @@
 @use "mixinVar";
 @media screen and (max-width: 768px) {
+  .heroContainer {
+    height: auto;
+  }
+  .carrousel {
+    height: auto;
+  }
   .carrouselItem {
-    flex-direction: column-reverse;
+    max-width: 80%;
+    height: 80%;
+    margin: 25px 0;
   }
   .carrouselItemInfo {
     margin-top: 40px;

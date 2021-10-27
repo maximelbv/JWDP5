@@ -80,12 +80,12 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column-reverse;
 }
 
 .carrouselItemInfo {
-  position: absolute;
-  bottom: 160px;
-  left: 140px;
+  align-self: flex-start;
+  margin: 50px 0 0 10%;
 }
 
 .carrouselItemCategory {
@@ -95,6 +95,7 @@ a {
 }
 
 .carrouselItemName {
+  text-align: center;
   font-size: 48px;
   font-weight: 800;
   margin: 0;
@@ -106,8 +107,13 @@ a {
   margin: 12px 0;
 }
 
+.carrouselItemImg {
+  max-width: 80%;
+  max-height: 60%;
+}
+
 .carrouselItemMore {
-  margin-top: 60px;
+  margin-top: 30px;
   cursor: pointer;
   display: inline-block;
   background: #EFF6F7;
@@ -192,6 +198,7 @@ a {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .catalogListItem * {
@@ -201,12 +208,24 @@ a {
 
 .catalogListItemName {
   font-size: 28px;
+  text-align: center;
+}
+
+.catalogListItemImgContainer {
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .catalogListItemImgLink {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.catalogListItemMore {
+  padding-top: 20px;
 }
 
 .fa-chevron-down {
