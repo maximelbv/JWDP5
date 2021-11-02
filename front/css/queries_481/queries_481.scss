@@ -106,9 +106,16 @@ $screenSize : 1920px;
     }
 
     .carrousel {
+        
         &Item {
+            
+            align-items: center;
             &Info {
                 transform: translateX(0px);
+                position: relative;
+                align-items: center;
+                top: 0;
+                left: 0;
             }
             &Category {
                 font-size: 20px;

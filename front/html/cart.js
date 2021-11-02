@@ -70,9 +70,6 @@ for (let i = 0; i< localStorage.length; i++) {
                     let deleteBtn = document.createElement('button');
                     deleteBtn.classList.add('cartItemDelete');
                     item.appendChild(deleteBtn);
-                    let deleteCross = document;createElement('i');
-                    deleteCross.classList.add('fa fa-times');
-                    deleteBtn.appendChild(deleteCross);
 
                 });
             } else {
