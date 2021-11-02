@@ -414,6 +414,9 @@ a {
             background: $textColor;
         }
     }
+    &Items {
+        width: 100%
+    }
     &Item {
         @include flexCenter;
         width: 100%;
@@ -438,6 +441,15 @@ a {
             10px 10px 18px rgba(55, 84, 170, 0.15), 
             -10px -10px 22px white, 
             inset 0px 0px 4px rgba(255, 255, 255, 0.2);
+        }
+        &Delete {
+            border: none;
+            background: url(../../media/img/cross.png);
+            background-position: center;
+            background-size: cover;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
         }
     }
     &Total {

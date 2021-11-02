@@ -53,44 +53,28 @@ function getIdProduct() {
 
 getIdProduct();
 
-
-// function addItem() {
-//     if(localStorage.getItem(params.get('id'))) {
-//         // ajouter ++ à quantity
-//     } else {
-//         fetch(`http://localhost:3000/api/furniture/${params.get('id')}`)
-//         .then(res => {
-//             if(res.ok) {
-//                 res.json().then(data => {
-//                     localStorage.setItem('item', JSON.stringify(data))
-//                 });
-//             } else {
-//                 console.log('Error');
-//             }
-//         })
-//     }
-// }
-
 function addItem() {
-    if(localStorage.getItem(params.get('id'))) {
-        console.log("++");
-    } else {
         fetch(`http://localhost:3000/api/furniture/${params.get('id')}`)
         .then(res => {
             if(res.ok) {
                 res.json().then(data => {
-                    if(lo)
-                    localStorage.setItem(data.name, JSON.stringify(data))
+                    if(localStorage.getItem(data.name)){
+                        console.log("+");
+                        data.quantity++;
+                    } else {
+                        data.quantity = 1;
+                        console.log(data);
+                        localStorage.setItem(data.name, data._id);
+                    }
+                    
                 });
             } else {
                 console.log('Error');
             }
         })
     }
-}
+
 
 
 let buyBtn = document.getElementById('displayArticleBtn');
-buyBtn.addEventListener('click', addItem());
-
-console.log(cart);
+buyBtn.addEventListener('click', addItem);
