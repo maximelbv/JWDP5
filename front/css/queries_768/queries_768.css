@@ -1,4 +1,3 @@
-@use "mixinVar";
 @media screen and (max-width: 768px) {
   .heroContainer {
     height: auto;

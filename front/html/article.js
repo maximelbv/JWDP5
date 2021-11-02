@@ -3,13 +3,12 @@ let baseHrefUrl = 'article.html?id=';
 let url = window.location;
 let params = (new URL(url)).searchParams;
 
-
 function displayIdProduct(res){
-    let articleDisplay = document.querySelector('.displayArticle');
-    let articleDisplayText = document.querySelector('.displayArticleTxt');
-    let articleInfos = document.querySelector('.displayArticleInfo');
+    let articleDisplay       = document.querySelector('.displayArticle');
+    let articleDisplayText   = document.querySelector('.displayArticleTxt');
+    let articleInfos         = document.querySelector('.displayArticleInfo');
     let descriptionContainer = document.querySelector('.informationsDescription');
-    let colorList = document.querySelector('.informationsColors');
+    let colorList            = document.querySelector('.informationsColors');
 
     let img = document.querySelector('.articleImg');
     img.setAttribute('src', res.imageUrl);
@@ -25,11 +24,6 @@ function displayIdProduct(res){
     price.innerText = (res.price/100) + ' €';
     articleInfos.appendChild(price);
 
-    let cartAdd = document.createElement('a');
-    cartAdd.classList.add('displayArticleBtn');
-    cartAdd.innerText = 'Ajouter au panier';
-    articleDisplayText.appendChild(cartAdd);
-
     let description = document.querySelector('.informationsDescriptionDesc');
     description.innerText = res.description;
     descriptionContainer.appendChild(description);
@@ -39,7 +33,6 @@ function displayIdProduct(res){
         color.classList.add('informationsColorsColor');
         color.style.background = res.varnish[i];
         colorList.appendChild(color);
-        console.log(res.varnish[i]);
     }
 
     
@@ -54,9 +47,50 @@ function getIdProduct() {
             });
         } else {
             console.log('Error');
-            document.getElementById('error').innerHTML = "Erreur";
         }
     })
 }
 
 getIdProduct();
+
+
+// function addItem() {
+//     if(localStorage.getItem(params.get('id'))) {
+//         // ajouter ++ à quantity
+//     } else {
+//         fetch(`http://localhost:3000/api/furniture/${params.get('id')}`)
+//         .then(res => {
+//             if(res.ok) {
+//                 res.json().then(data => {
+//                     localStorage.setItem('item', JSON.stringify(data))
+//                 });
+//             } else {
+//                 console.log('Error');
+//             }
+//         })
+//     }
+// }
+
+function addItem() {
+    if(localStorage.getItem(params.get('id'))) {
+        console.log("++");
+    } else {
+        fetch(`http://localhost:3000/api/furniture/${params.get('id')}`)
+        .then(res => {
+            if(res.ok) {
+                res.json().then(data => {
+                    if(lo)
+                    localStorage.setItem(data.name, JSON.stringify(data))
+                });
+            } else {
+                console.log('Error');
+            }
+        })
+    }
+}
+
+
+let buyBtn = document.getElementById('displayArticleBtn');
+buyBtn.addEventListener('click', addItem());
+
+console.log(cart);

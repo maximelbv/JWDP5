@@ -9,6 +9,8 @@
 
         <script src="https://kit.fontawesome.com/ed84f7e821.js" crossorigin="anonymous"></script>
 
+        <script src="article.js"></script>
+
         <link rel="icon" href="../media/img/favicon.png" type="image/png">
 
         <link rel="stylesheet" href="../css/main/style.min.css">
@@ -30,9 +32,7 @@
             </a>
             
             <nav class="headerNavigation">
-                <!-- <a href="#" class="headerIcon headerSearch"><i class="fas fa-search"></i></a> -->
                 <a href="#" class="headerIcon headerCart"><i class="fas fa-shopping-cart"></i></a>
-                <!-- <a href="#" class="headerIcon headerAccount"><i class="fas fa-user"></i></a> -->
             </nav>
 
         </header>
@@ -50,6 +50,7 @@
                     </div>
                     <p class="cartItemName">Ingrid</p>
                     <p class="cartItemPrice">$220</p>
+                    <input type="number" name="" class="cartItemQtt" value='1' min="1">
                     <p class="cartItemDelete"> <i class="fa fa-times" aria-hidden="true"></i> </p>
 
                 </div>
@@ -61,6 +62,7 @@
                     </div>
                     <p class="cartItemName">Ingrid</p>
                     <p class="cartItemPrice">$220</p>
+                    <input type="number" name="" class="cartItemQtt" value='1' min="1">
                     <p class="cartItemDelete"> <i class="fa fa-times" aria-hidden="true"></i> </p>
 
                 </div>
@@ -72,6 +74,7 @@
                     </div>
                     <p class="cartItemName">Ingrid</p>
                     <p class="cartItemPrice">$220</p>
+                    <input type="number" name="" class="cartItemQtt" value='1' min="1">
                     <p class="cartItemDelete"> <i class="fa fa-times" aria-hidden="true"></i> </p>
 
                 </div>
@@ -91,30 +94,30 @@
 
                 <label class="checkoutName"> 
                     <i class="fas fa-user"></i> 
-                    <input class="checkoutInput" type="text" placeholder="Nom complet"> 
+                    <input class="checkoutInput" type="text" placeholder="Nom complet *" required> 
                 </label>
 
                 <label class="checkoutContact"> 
                      <i class="far fa-envelope"></i>
-                    <input class="checkoutInput" type="email" placeholder="Adresse mail"> 
-                    <input class="checkoutInput" type="text" placeholder="N° de téléphone"> 
+                    <input class="checkoutInput" type="email" placeholder="Adresse mail *" required> 
+                    <input class="checkoutInput" type="text" placeholder="N° de téléphone *" required> 
                 </label>
 
                 <label class="checkoutCard"> 
                     <i class="fas fa-credit-card"></i>
-                    <input class="checkoutInput" type="text" placeholder="N° de carte"> 
-                    <input class="checkoutInput" type="date" placeholder=" / ">
-                    <input class="checkoutInput" type="text" placeholder="CVC">
+                    <input class="checkoutInput" type="text" placeholder="N° de carte *" required> 
+                    <input class="checkoutInput" type="date" placeholder=" /  *" required>
+                    <input class="checkoutInput" type="text" placeholder="CVC" required>
                 </label>
 
                 <label class="checkoutAdress"> 
                     <i class="fas fa-map-marker-alt"></i>
-                    <input class="checkoutInput" type="text" placeholder="Adresse postale"> 
-                    <input class="checkoutInput" type="text" placeholder="Code postal"> 
-                    <input class="checkoutInput" type="text" placeholder="Ville"> 
+                    <input class="checkoutInput" type="text" placeholder="Adresse postale *" required> 
+                    <input class="checkoutInput" type="text" placeholder="Code postal *" required> 
+                    <input class="checkoutInput" type="text" placeholder="Ville *" required> 
                 </label>
 
-                <a href="#" class="checkoutBtn">Payer 712$</a>
+                <a href="validation.html" class="checkoutBtn">Payer 712$</a>
 
             </section>
 
