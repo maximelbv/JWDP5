@@ -1,7 +1,7 @@
-keys = Object.keys(localStorage);
-let values = Object.values(localStorage)
 
 let cart = JSON.parse(localStorage.getItem('cart'));
+
+console.log(Object.entries(cart)[0])
 
 if (cart) {
     for (let i = 0; i< Object.keys(cart).length; i++) {
@@ -9,8 +9,7 @@ if (cart) {
             .then(res => {
                 if(res.ok) {
                     res.json().then(data => {
-                        displayCartItems(data);
-                        console.log(Object.keys(cart)[i])
+                        displayCartItems(data, Object.values(cart)[i]);
                     });
                 } else {
                     console.log('Error');
@@ -21,7 +20,7 @@ if (cart) {
 
 
 
-function displayCartItems(res){
+function displayCartItems(res, val){
     let item = document.createElement('div');
     item.classList.add('cartItem');
     let container = document.querySelector('.cartItems');
@@ -41,14 +40,12 @@ function displayCartItems(res){
     item.appendChild(name);
 
     let price = document.createElement('p');
-    price.innerText = (res.price / 100) + ' €';
+    price.innerText = ((res.price / 100) * val) + ' €';
     price.classList.add('cartItemPrice');
     item.appendChild(price);
 
-    let quantity = document.createElement('input')
-    quantity.setAttribute('type', 'number');
-    quantity.setAttribute('value', res.quantity);
-    quantity.classList.add('cartItemQtt');
+    let quantity = document.createElement('p')
+    quantity.innerText = val;
     item.appendChild(quantity);
 
     let deleteBtn = document.createElement('button');
