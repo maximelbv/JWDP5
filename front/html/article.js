@@ -5,7 +5,6 @@ let params = (new URL(url)).searchParams;
 
 function displayIdProduct(res){
     let articleDisplay       = document.querySelector('.displayArticle');
-    let articleDisplayText   = document.querySelector('.displayArticleTxt');
     let articleInfos         = document.querySelector('.displayArticleInfo');
     let descriptionContainer = document.querySelector('.informationsDescription');
     let colorList            = document.querySelector('.informationsColors');
@@ -53,27 +52,25 @@ function getIdProduct() {
 
 getIdProduct();
 
-function addItem() {
-        fetch(`http://localhost:3000/api/furniture/${params.get('id')}`)
-        .then(res => {
-            if(res.ok) {
-                res.json().then(data => {
-                    if(localStorage.getItem(data.name)){
-                        console.log("+");
-                        data.quantity++;
-                    } else {
-                        data.quantity = 1;
-                        console.log(data);
-                        localStorage.setItem(data.name, data._id);
-                    }
-                    
-                });
-            } else {
-                console.log('Error');
-            }
-        })
-    }
 
+
+function addItem() {
+    let id = params.get('id');
+    let cart;
+    
+    if(localStorage.getItem('cart')) {
+        cart = JSON.parse(localStorage.getItem('cart'));
+        if (cart[id]) {
+            cart[id] += 1;
+        } else {
+            cart[id] = 1;
+        }
+    } else {
+        cart = {};
+        cart[id] = 1;
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
 
 
 let buyBtn = document.getElementById('displayArticleBtn');
