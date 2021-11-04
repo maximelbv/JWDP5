@@ -24,6 +24,21 @@ a {
   margin-bottom: 50px;
 }
 
+.goToCheckout {
+  cursor: pointer;
+  display: inline-block;
+  background: #FBB03B;
+  padding: 20px 70px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: bolder;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+  display: none;
+}
+
 /* HEADER */
 .header {
   max-width: 1920px;
@@ -426,18 +441,19 @@ a {
 }
 
 .cartItem {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   width: 100%;
-  justify-content: space-between;
   margin: 10px 0;
 }
 
-.cartItemImage {
+.cartItem * {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.cartItemImage {
   width: 60px;
   height: 60px;
   background: #F5F5F5;
@@ -448,14 +464,8 @@ a {
   width: 70%;
 }
 
-.cartItemDelete {
-  border: none;
-  background: url(../../media/img/cross.png);
-  background-position: center;
-  background-size: cover;
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
+.cartItemName {
+  text-align: center;
 }
 
 .cartTotal {
@@ -480,6 +490,14 @@ a {
   background: #2B2B2B;
   position: absolute;
   top: 10px;
+}
+
+.cartBtns {
+  width: 400px;
+}
+
+.cartBtns * {
+  text-align: center;
 }
 
 .checkout {

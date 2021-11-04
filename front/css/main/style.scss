@@ -128,6 +128,13 @@ a {
     margin-bottom: 50px;
 }
 
+.goToCheckout {
+    @include btnTwo;
+    @include flexCenter;
+    margin-bottom: 50px;
+    display: none;
+}
+
 /* HEADER */
 
 .header {
@@ -418,12 +425,14 @@ a {
         width: 100%
     }
     &Item {
-        @include flexCenter;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
         width: 100%;
-        justify-content: space-between;
         margin: 10px 0;
-        &Image {
+        & * {
             @include flexCenter;
+        }
+        &Image {
             width: 60px;
             height: 60px;
             background: $bgColorGrey;
@@ -432,14 +441,8 @@ a {
                 width: 70%;
             }
         }
-        &Delete {
-            border: none;
-            background: url(../../media/img/cross.png);
-            background-position: center;
-            background-size: cover;
-            width: 20px;
-            height: 20px;
-            cursor: pointer;
+        &Name {
+            text-align: center;
         }
     }
     &Total {
@@ -459,6 +462,12 @@ a {
             background: $textColor;
             position: absolute;
             top: 10px;
+        }
+    }
+    &Btns {
+        width: 400px;
+        & * {
+            text-align: center;
         }
     }
 }

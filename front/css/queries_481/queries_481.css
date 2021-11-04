@@ -55,6 +55,9 @@
   .cart a {
     padding: 20px 25px;
   }
+  .cartBtns {
+    width: 100%;
+  }
   .checkoutTitle {
     margin: 0;
     margin-bottom: 10px;

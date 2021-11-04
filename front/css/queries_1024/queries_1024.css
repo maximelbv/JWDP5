@@ -24,6 +24,9 @@
   .cart a {
     margin: 25px 0;
   }
+  .goToCheckout {
+    display: block;
+  }
   .checkout {
     width: 100%;
   }
