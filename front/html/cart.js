@@ -1,7 +1,9 @@
 
 let cart = JSON.parse(localStorage.getItem('cart'));
 
-console.log(Object.entries(cart)[0])
+console.log(Object.values(cart))
+
+let prices = [];
 
 if (cart) {
     for (let i = 0; i< Object.keys(cart).length; i++) {
@@ -48,13 +50,14 @@ function displayCartItems(res, val){
     quantity.innerText = val;
     item.appendChild(quantity);
 
-    let deleteBtn = document.createElement('button');
-    deleteBtn.classList.add('cartItemDelete');
-    deleteBtn.setAttribute('id', `DL${res._id}`)
-    item.appendChild(deleteBtn);
-    deleteBtn.addEventListener('click', deleteItem(res))
+    prices.push(val * (res.price / 100));
+    const reducer = (acc, cur) => acc +cur;
+    let total = prices.reduce(reducer)
+
+    document.querySelector('.cartTotalValue').innerText = total + ' €';
+    document.querySelector('.checkoutBtn').innerText = 'Payer ' + total + ' €';
+    // let totalPrice = document.querySelector('.carttotalvalue');
+    // totalPrice.innerText = 
+
 }
 
-function deleteItem(item) {
-    localStorage.removeItem(item);
-}
