@@ -1,18 +1,25 @@
 keys = Object.keys(localStorage);
 let values = Object.values(localStorage)
 
-for (let i = 0; i< localStorage.length; i++) {
-    fetch(`http://localhost:3000/api/furniture/${values[i]}`)
-        .then(res => {
-            if(res.ok) {
-                res.json().then(data => {
-                    displayCartItems(data);
-                });
-            } else {
-                console.log('Error');
-            }
-        })
+let cart = JSON.parse(localStorage.getItem('cart'));
+
+if (cart) {
+    for (let i = 0; i< Object.keys(cart).length; i++) {
+        fetch(`http://localhost:3000/api/furniture/${Object.keys(cart)[i]}`)
+            .then(res => {
+                if(res.ok) {
+                    res.json().then(data => {
+                        displayCartItems(data);
+                        console.log(Object.keys(cart)[i])
+                    });
+                } else {
+                    console.log('Error');
+                }
+            })
+    }
 }
+
+
 
 function displayCartItems(res){
     let item = document.createElement('div');
@@ -54,6 +61,3 @@ function displayCartItems(res){
 function deleteItem(item) {
     localStorage.removeItem(item);
 }
-
-// document.querySelector('cartItemDelete').addEventListener('click', deleteItem);
-console.log(keys)
