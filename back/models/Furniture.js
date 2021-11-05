@@ -14,8 +14,8 @@ const furnitures = [
   },
   {
     "varnish": [
-      "Dark Oak",
-      "Light Oak"
+      "#D0A943",
+      "#ffe5d9"
     ],
     "_id": "5beaadda1c9d440000a57d98",
     "name": "Coffee Table",
@@ -25,9 +25,9 @@ const furnitures = [
   },
   {
     "varnish": [
-      "Dark Oak",
-      "Teak",
-      "Mahogany"
+      "#98A39B",
+      "black",
+      "white"
     ],
     "_id": "5beaae361c9d440000a57d99",
     "name": "Dining Table",
@@ -37,8 +37,8 @@ const furnitures = [
   },
   {
     "varnish": [
-      "Light Oak",
-      "Teak"
+      "#D99C82",
+      "#7f5539"
     ],
     "_id": "5beaaf2e1c9d440000a57d9a",
     "name": "Bench",
@@ -48,8 +48,8 @@ const furnitures = [
   },
   {
     "varnish": [
-      "Dark Oak",
-      "Mahogany"
+      "#D99C82",
+      "#7f5539"
     ],
     "_id": "5beab2061c9d440000a57d9b",
     "name": "Vintage Chair",
