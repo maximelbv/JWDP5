@@ -1,9 +1,9 @@
 let baseHrefUrl = 'article.html?id=';
-
 let url = window.location;
 let params = (new URL(url)).searchParams;
 
-
+// Créé les balises html et affiche les éléments (res) dans le carrousel 
+// de la page d'accueil (index.html)
 function displayCarrousel(res) {
 
     let item = document.createElement('div');
@@ -38,7 +38,8 @@ function displayCarrousel(res) {
 
 }
 
-
+// Créé les balises html et affiche les éléments (res) dans le catalogue 
+// de la page d'accueil (index.html)
 function displayCatalog(res) {
     
     let card = document.createElement('div');
@@ -69,7 +70,8 @@ function displayCatalog(res) {
 }
 
 
-
+// Récupère les éléments de l'API et lance les fonctions 'displayCatalog' et 
+// 'displayCarrousel' avec en paramètre les données de l'API
 function getProducts() {
     fetch('http://localhost:3000/api/furniture')
     .then(res => {
@@ -77,14 +79,11 @@ function getProducts() {
             res.json().then(data => {
                 for(let i=0; i<data.length; i++) {
                     displayCatalog(data[i]);
-                }
-                for(let i=0; i < 3; i++) {
                     displayCarrousel(data[i]);
                 }
             });
         } else {
             console.log('Error');
-            document.getElementById('error').innerHTML = "Erreur";
         }
     })
 }
