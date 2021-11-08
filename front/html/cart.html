@@ -9,7 +9,7 @@
 
         <script src="https://kit.fontawesome.com/ed84f7e821.js" crossorigin="anonymous"></script>
 
-        <script src="../js/cart.js"></script>
+        <script src="../js/cart.js" defer></script>
         <script src="../js/common.js" defer></script>
 
         <link rel="icon" href="../media/img/favicon.png" type="image/png">
@@ -61,38 +61,38 @@
 
             </section>
 
-            <section class="checkout" id="checkout">
+            <form class="checkout" id="checkout">
 
                 <h3 class="checkoutTitle">Détails de paiement</h3>
 
                 <label class="checkoutName"> 
                     <i class="fas fa-user"></i> 
-                    <input class="checkoutInput" type="text" placeholder="Nom complet *" required> 
+                    <input id='checkoutInputName' class="checkoutInput" type="text" placeholder="Nom complet *" required> 
                 </label>
 
                 <label class="checkoutContact"> 
                      <i class="far fa-envelope"></i>
-                    <input class="checkoutInput" type="email" placeholder="Adresse mail *" required> 
-                    <input class="checkoutInput" type="text" placeholder="N° de téléphone *" required> 
+                    <input id='checkoutInputMail' class="checkoutInput" type="email" placeholder="Adresse mail *" required> 
+                    <input id='checkoutInputTel' class="checkoutInput" type="text" placeholder="N° de téléphone *" required> 
                 </label>
 
                 <label class="checkoutCard"> 
                     <i class="fas fa-credit-card"></i>
-                    <input class="checkoutInput" type="text" placeholder="N° de carte *" required> 
-                    <input class="checkoutInput" type="date" placeholder=" /  *" required>
-                    <input class="checkoutInput" type="text" placeholder="CVC" required>
+                    <input id='checkoutInputCardNumber' class="checkoutInput" type="text" placeholder="N° de carte *" required> 
+                    <input id='checkoutInputCardDate' class="checkoutInput" type="date" placeholder=" /  *" required>
+                    <input id='checkoutInputCardCvc' class="checkoutInput" type="text" placeholder="CVC" required>
                 </label>
 
                 <label class="checkoutAdress"> 
                     <i class="fas fa-map-marker-alt"></i>
-                    <input class="checkoutInput" type="text" placeholder="Adresse postale *" required> 
-                    <input class="checkoutInput" type="text" placeholder="Code postal *" required> 
-                    <input class="checkoutInput" type="text" placeholder="Ville *" required> 
+                    <input id='checkoutInputAdress' class="checkoutInput" type="text" placeholder="Adresse postale *" required> 
+                    <input id='checkoutInputPostalCode' class="checkoutInput" type="text" placeholder="Code postal *" required> 
+                    <input id='checkoutInputCity' class="checkoutInput" type="text" placeholder="Ville *" required> 
                 </label>
 
-                <a href="validation.html" class="checkoutBtn">Payer 0€</a>
+                <input id='CheckoutSubmit' type="submit" value="Payer 0€" href="validation.html" class="checkoutBtn">
 
-            </section>
+            </form>
 
         </main>
 

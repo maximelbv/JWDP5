@@ -59,6 +59,54 @@ function displayCartItems(res, val){
 
     // affiche le prix total sur les éléments
     document.querySelector('.cartTotalValue').innerText = total + ' €';
-    document.querySelector('.checkoutBtn').innerText = 'Payer ' + total + ' €';
+    document.querySelector('.checkoutBtn').setAttribute('value', `Payer ${total} €`);
 
 }
+
+let checkoutName = document.getElementById('checkoutInputName');
+
+let checkoutMail = document.getElementById('checkoutInputMail');
+let checkoutTel = document.getElementById('checkoutInputTel');
+
+let checkoutCardNumber = document.getElementById('checkoutInputCardNumber');
+let checkoutCardDate = document.getElementById('checkoutInputCardDate');
+let checkoutCardCvc = document.getElementById('checkoutInputCardCvc');
+
+let checkoutAdress = document.getElementById('checkoutInputAdress');
+let checkoutPostalCode = document.getElementById('checkoutInputPostalCode');
+let checkoutCity = document.getElementById('checkoutInputCity');
+
+const regexName = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
+const regexMail = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+const regexTel = /^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$/;
+const regexCardNumber = /^[0-9]/;
+const regexCardDate = /^(0[1-9]|1[0-2])\/?(([0-9]{4}|[0-9]{2})$)/;
+const regexCardCvc = /^[0-9]{3,4}$/;
+const regexAdress = /\w+(\s\w+){2,}/;
+const regexPostalCode = /\d{2}[ ]?\d{3}/;
+const regexCity = /^[a-zA-Z',.\s-]{1,25}$/;
+
+
+function regexCheck(input, regex) {
+    input.addEventListener('input', () => {
+        if (!input.value.match(regex)) {
+            input.classList.remove('validInput');
+            input.classList.add('invalidInput');
+            return false;
+        } else {
+            input.classList.remove('invalidInput');
+            input.classList.add('validInput');
+            return true;
+        }
+    })
+}
+
+regexCheck(checkoutName, regexName);
+regexCheck(checkoutMail, regexMail);
+regexCheck(checkoutTel, regexTel);
+regexCheck(checkoutCardNumber, regexCardNumber);
+regexCheck(checkoutCardDate, regexCardDate);
+regexCheck(checkoutCardCvc, regexCardCvc);
+regexCheck(checkoutAdress, regexAdress);
+regexCheck(checkoutPostalCode, regexPostalCode);
+regexCheck(checkoutCity, regexCity);

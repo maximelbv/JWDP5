@@ -508,10 +508,23 @@ a {
         color: $textColor;
         font-weight: bolder;
         box-shadow: $boxShadow;
+        &:focus {
+            outline: none;
+        }
     }
     &Btn {
         @include btnTwo;
+        border: none;
+        font-family: 'Raleway', sans-serif;
     }
+}
+
+.invalidInput {
+    border: 1.5px solid red;
+}
+
+.validInput {
+    border: 1.5px solid green;
 }
 
 /* MAIN CONFIRMATION / CANCELLATION / EMPTY CART / 404 */
