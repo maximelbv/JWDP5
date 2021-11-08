@@ -1,11 +1,24 @@
 
+// Index: 
+    // VARIABLES
+    // FONTS
+    // MIXINS
+    // COMMON
+    // HEADER
+    // MAIN HOME
+    // MAIN ARTICLE
+    // MAIN CART
+    // MAIN CONFIRMATION / CANCELLATION / EMPTY CART / 404 
+    // FOOTER
+
+// Color variables
 $textColor : #2B2B2B;
 $bgColorGrey : #F5F5F5;
 $borderColor :#E9EBF3;
 $orinocoLinkColor : #6888f3;
 $bgArticle : #ADD4FF;
 
-
+// Font-size variables
 $fontSizeS : 18px;
 $fontSizeM : 20px;
 $fontSizeL : 24px;
@@ -13,29 +26,35 @@ $fontSizeXL : 28px;
 $fontSizeXXL : 48px;
 $fontSizeXXXL : 64px;
 
+// Specific box-shadow propreties added to multiple elements 
 $boxShadow : inset 0 0 15px rgba(55, 84, 170, 0), 
 inset 0 0 20px rgba(255, 255, 255, 0), 
 10px 10px 18px rgba(55, 84, 170, 0.15), 
 -10px -10px 22px white, 
 inset 0px 0px 4px rgba(255, 255, 255, 0.2);
 
+// Second specific box-shadow propreties added to multiple elements 
 $boxShadow2: rgba(108,157,243,0.6) 0 24px 30px;
 
 $screenSize : 1920px;
 
+// Raleway font
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
+// Display flex + center vertically / horizontally
 @mixin flexCenter {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+// max width: 1920px + margin auto (to avoid problems with screens wider than 1920px)
 @mixin sectionWidth {
     max-width: 1920px;
     margin: auto;
 }
 
+// white button
 @mixin btnOne {
     cursor: pointer;
     display: inline-block;
@@ -46,6 +65,7 @@ $screenSize : 1920px;
     font-weight: bolder;
 }
 
+// orange button
 @mixin btnTwo {
     cursor: pointer;
     display: inline-block;
@@ -56,11 +76,13 @@ $screenSize : 1920px;
     font-weight: bolder;
 }
 
+// conditions for the shine animation
 @mixin shineConditions {
     position: relative;
     overflow: hidden;
 }
 
+// shine animation (used on the colors selections)
 @mixin shine {
     &:after {
         content: "";
@@ -90,6 +112,7 @@ $screenSize : 1920px;
       }
 }
 
+// label title (define a 'before' element for the input with the 'attr(aria-label)')
 @mixin labelTitle {
     &::before {
         content: attr(aria-label);
@@ -99,6 +122,7 @@ $screenSize : 1920px;
     }
 }
 
+// layout for low information pages (like validation, cancellation, 404,...)
 @mixin displayInfo {
     @include sectionWidth;
     @include flexCenter;
@@ -131,17 +155,11 @@ a {
     color: $textColor;
 }
 
+// button used multiple times on the website
 .returnHome {
     @include btnTwo;
     @include flexCenter;
     margin-bottom: 50px;
-}
-
-.goToCheckout {
-    @include btnTwo;
-    @include flexCenter;
-    margin-bottom: 50px;
-    display: none;
 }
 
 /* HEADER */
@@ -165,6 +183,7 @@ a {
 
 /* MAIN HOME */
 
+//Contains the carrousel
 .hero {
     background: #C2DEE0;
     &Container {
@@ -174,6 +193,8 @@ a {
     }
 }
 
+// Composed of 3 items. Each item have 100% of the screen size width.
+// the animation move the 'carrousel' container to -100%, -200% and return to 0% on the X axis
 .carrousel {
     height: 100%;
     min-width: 100%;
@@ -259,6 +280,7 @@ a {
     }
 }
 
+// catalog of the home page (just below the carrousel)
 .catalog {
     @include sectionWidth;
     &Anchor {
@@ -309,14 +331,14 @@ a {
     }
 }
 
-
-
+// arrow icon of the 'Tout les articles' anchor in the home page
 .fa-chevron-down {
     padding-left: 5px;
 }
 
 /* MAIN ARTICLE */ 
 
+// Composed of 2 main containers : displayArticle & informations
 .articleMain {
     @include sectionWidth;
     display: flex;
@@ -403,6 +425,7 @@ a {
 
 /* CART */
 
+// Composed of 2 main containers : cart & checkout form
 .cartMain {
     @include sectionWidth;
     display: flex;
@@ -475,6 +498,13 @@ a {
             text-align: center;
         }
     }
+}
+
+.goToCheckout {
+    @include btnTwo;
+    @include flexCenter;
+    margin-bottom: 50px;
+    display: none;
 }
 
 .checkout {
@@ -558,6 +588,7 @@ a {
 
 /* FOOTER */
 
+// Composed of 2 main containers : firstContainer (links, newsletter & phone store buttons) & secondContainer (legal pages, social links)
 .footer {
     background: $bgColorGrey;
     &FirstContainer {

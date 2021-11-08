@@ -25,21 +25,6 @@ a {
   margin-bottom: 50px;
 }
 
-.goToCheckout {
-  cursor: pointer;
-  display: inline-block;
-  background: #FBB03B;
-  padding: 20px 70px;
-  border-radius: 50px;
-  font-size: 18px;
-  font-weight: bolder;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 50px;
-  display: none;
-}
-
 /* HEADER */
 .header {
   max-width: 1920px;
@@ -482,6 +467,21 @@ a {
 
 .cartBtns * {
   text-align: center;
+}
+
+.goToCheckout {
+  cursor: pointer;
+  display: inline-block;
+  background: #FBB03B;
+  padding: 20px 70px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: bolder;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+  display: none;
 }
 
 .checkout {
