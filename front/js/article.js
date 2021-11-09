@@ -3,6 +3,16 @@ let baseHrefUrl = 'article.html?id=';
 let url = window.location;
 let params = (new URL(url)).searchParams;
 
+// Objet de test
+let testObject = {
+    name : 'test name',
+    price : 12000,
+    _id : 123456789,
+    description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum',
+    imageUrl : "https://via.placeholder.com/1000x1000",
+    varnish : ['red', 'green', 'blue']
+};
+
 // Créé les balises / récupère les élements html et 
 // affiche les éléments (res) sur la page d'article (article.html)
 function displayIdProduct(res){

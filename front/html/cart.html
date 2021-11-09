@@ -33,7 +33,7 @@
             </a>
             
             <nav class="headerNavigation">
-                <a href="#" class="headerIcon headerCart"><i class="fas fa-shopping-cart"></i></a>
+                <a href="#" class="headerIcon headerCart" id='indexCartBtn'><i class="fas fa-shopping-cart"></i></a>
             </nav>
 
         </header>
@@ -41,9 +41,8 @@
         <main class="cartMain">
 
             <section class="cart">
-
                 <h2 class="cartTitle">Panier</h2>
-
+                 
                 <div class="cartItems"></div>
 
 
@@ -61,7 +60,7 @@
 
             </section>
 
-            <form class="checkout" id="checkout">
+            <form action="validation.html" class="checkout" id="checkout">
 
                 <h3 class="checkoutTitle">Détails de paiement</h3>
 
@@ -78,9 +77,9 @@
 
                 <label class="checkoutCard"> 
                     <i class="fas fa-credit-card"></i>
-                    <input id='checkoutInputCardNumber' class="checkoutInput" type="text" placeholder="N° de carte *" required> 
-                    <input id='checkoutInputCardDate' class="checkoutInput" type="date" placeholder=" /  *" required>
-                    <input id='checkoutInputCardCvc' class="checkoutInput" type="text" placeholder="CVC" required>
+                    <input id='checkoutInputCardNumber' class="checkoutInput" type="tel" placeholder="N° de carte *" required> 
+                    <input id='checkoutInputCardDate' class="checkoutInput" type="tel" placeholder="MM / YY *" required>
+                    <input id='checkoutInputCardCvc' class="checkoutInput" type="tel" placeholder="CVC" required>
                 </label>
 
                 <label class="checkoutAdress"> 
@@ -90,7 +89,7 @@
                     <input id='checkoutInputCity' class="checkoutInput" type="text" placeholder="Ville *" required> 
                 </label>
 
-                <input id='CheckoutSubmit' type="submit" value="Payer 0€" href="validation.html" class="checkoutBtn">
+                <input id='CheckoutSubmit' type="submit" value="Payer 0€" class="checkoutBtn">
 
             </form>
 

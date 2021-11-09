@@ -2,6 +2,15 @@ let baseHrefUrl = 'article.html?id=';
 let url = window.location;
 let params = (new URL(url)).searchParams;
 
+// Objet de test
+let testObject = {
+    name : 'test name',
+    price : 12000,
+    _id : 123456789,
+    imageUrl : "https://via.placeholder.com/150x150",
+    varnish : ['red', 'green', 'blue']
+};
+
 // Créé les balises html et affiche les éléments (res) dans le carrousel 
 // de la page d'accueil (index.html)
 function displayCarrousel(res) {
@@ -22,7 +31,7 @@ function displayCarrousel(res) {
     let price = document.createElement('p');
     price.classList.add('carrouselItemPrice');
     price.innerText = (res.price / 100) + ' €';
-    itemInfos.appendChild(price);
+    itemInfos.appendChild(price); 
 
     let btn = document.createElement('a');
     btn.classList.add('carrouselItemMore');
@@ -35,7 +44,6 @@ function displayCarrousel(res) {
     img.setAttribute('src', res.imageUrl);
     img.setAttribute('height', '70%');
     item.appendChild(img);
-
 }
 
 // Créé les balises html et affiche les éléments (res) dans le catalogue 
@@ -69,7 +77,6 @@ function displayCatalog(res) {
     card.appendChild(moreInfo);
 }
 
-
 // Récupère les éléments de l'API et lance les fonctions 'displayCatalog' et 
 // 'displayCarrousel' avec en paramètre les données de l'API
 function getProducts() {
@@ -85,8 +92,8 @@ function getProducts() {
         } else {
             console.log('Error');
         }
-    })
+    }) 
 }
 
+// Lance la fonction 'getProducts'
 getProducts()
-

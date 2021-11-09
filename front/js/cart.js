@@ -4,24 +4,13 @@ let cart = JSON.parse(localStorage.getItem('cart'));
 // le tableau 'prices' va récupréer les prix et les additionner entre eux pour afficher le montant total
 let prices = [];
 
-// Si le panier existe: boucle les données de 'cart' et pour chaque donnée:
-// récupère ses éléments depuis l'API et lance la fonction 'displayCartItems'
-// avec en paramètres les données récupérées de l'API
-if (cart) {                                                           
-    for (let i = 0; i< Object.keys(cart).length; i++) {              
-        fetch(`http://localhost:3000/api/furniture/${Object.keys(cart)[i]}`)
-            .then(res => {
-                if(res.ok) {
-                    res.json().then(data => {
-                        displayCartItems(data, Object.values(cart)[i]);
-                    });
-                } else {
-                    console.log('Error');
-                }
-            })
-    }
-}
-
+let testObject = {
+    name : 'test name',
+    price : 12000,
+    _id : 123456789,
+    imageUrl : "https://via.placeholder.com/150x150",
+    varnish : ['red', 'green', 'blue']
+};
 
 // Créé les balises html et affiche les éléments (res) dans le panier
 // de la page panier (cart.html)
@@ -62,6 +51,28 @@ function displayCartItems(res, val){
     document.querySelector('.checkoutBtn').setAttribute('value', `Payer ${total} €`);
 
 }
+
+// Si le panier existe: boucle les données de 'cart' et pour chaque donnée:
+// récupère ses éléments depuis l'API et lance la fonction 'displayCartItems'
+// avec en paramètres les données récupérées de l'API
+function getCart() {
+    if (cart) {                                                           
+        for (let i = 0; i< Object.keys(cart).length; i++) {              
+            fetch(`http://localhost:3000/api/furniture/${Object.keys(cart)[i]}`)
+                .then(res => {
+                    if(res.ok) {
+                        res.json().then(data => {
+                            displayCartItems(data, Object.values(cart)[i]);
+                        });
+                    } else {
+                        console.log('Error');
+                    }
+                })
+        }
+    }
+}
+
+getCart();
 
 let checkoutName = document.getElementById('checkoutInputName');
 
@@ -110,3 +121,7 @@ regexCheck(checkoutCardCvc, regexCardCvc);
 regexCheck(checkoutAdress, regexAdress);
 regexCheck(checkoutPostalCode, regexPostalCode);
 regexCheck(checkoutCity, regexCity);
+
+
+
+
