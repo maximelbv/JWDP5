@@ -4,15 +4,11 @@
     padding-right: 20px;
   }
   .heroContainer {
-    height: auto;
-  }
-  .carrouselItem {
-    align-items: center;
+    height: 650px;
   }
   .carrouselItemInfo {
     transform: translateX(0px);
     position: relative;
-    align-items: center;
     top: 0;
     left: 0;
   }

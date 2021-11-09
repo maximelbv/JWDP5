@@ -101,19 +101,18 @@ $screenSize : 1920px;
 
     .hero {
         &Container {
-            height: auto;
+            height: 650px;
+            
         }
     }
 
     .carrousel {
-        
         &Item {
-            
-            align-items: center;
+            // align-items: center;
             &Info {
                 transform: translateX(0px);
                 position: relative;
-                align-items: center;
+                // align-items: center;
                 top: 0;
                 left: 0;
             }
