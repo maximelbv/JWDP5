@@ -1,8 +1,3 @@
-
-let baseHrefUrl = 'article.html?id=';
-let url = window.location;
-let params = (new URL(url)).searchParams;
-
 // Objet de test
 let testObject = {
     name : 'test name',
@@ -12,6 +7,10 @@ let testObject = {
     imageUrl : "https://via.placeholder.com/1000x1000",
     varnish : ['red', 'green', 'blue']
 };
+
+// paramètres de l'url, utilisés dans la fonction getIdProduct et addItem
+let url = window.location;
+let params = (new URL(url)).searchParams;
 
 // Créé les balises / récupère les élements html et 
 // affiche les éléments (res) sur la page d'article (article.html)
@@ -62,10 +61,6 @@ function getIdProduct() {
     })
 }
 
-// lance la fonction 'getIdProducts'
-getIdProduct();
-
-
 // fonction d'ajout d'article au panier 
 function addItem() {
     let id = params.get('id');
@@ -85,7 +80,5 @@ function addItem() {
     localStorage.setItem('cart', JSON.stringify(cart));  // stringify l'objet 'cart' (panier) et ajoute le au localStorage
 }
 
-
-let buyBtn = document.getElementById('displayArticleBtn');
-// lance la fonction 'addItem' au clic de l'élément
-buyBtn.addEventListener('click', addItem);
+document.getElementById('displayArticleBtn').addEventListener('click', addItem);
+getIdProduct();

@@ -23,7 +23,7 @@ let checkoutCity = document.getElementById('checkoutInputCity');
 const regexName = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
 const regexMail = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 const regexTel = /^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$/;
-const regexCardNumber = /^[0-9]/;
+const regexCardNumber = /^[0-9]*$/;
 const regexCardDate = /^(0[1-9]|1[0-2])\/?(([0-9]{4}|[0-9]{2})$)/;
 const regexCardCvc = /^[0-9]{3,4}$/;
 const regexAdress = /\w+(\s\w+){2,}/;
@@ -119,7 +119,7 @@ function regexCheck(input, regex) {
     })
 }
 
-// lance les fonctions au chargement de la pag
+// lance les fonctions au chargement de la page
 getCart();
 regexCheck(checkoutName, regexName);
 regexCheck(checkoutMail, regexMail);

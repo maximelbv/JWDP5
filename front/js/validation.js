@@ -12,8 +12,6 @@ function getIds() {                                                             
     }
 }                                                                            
 
-getIds();
-
 // au clic de l'élément (btn) vide le local storage
 function emptyTheLocalStorage (btn) {
     btn.addEventListener('click', () => {
@@ -21,5 +19,7 @@ function emptyTheLocalStorage (btn) {
     })
 }
 
+// lance les fonctions au chargement de la page
+getIds();
 emptyTheLocalStorage(document.getElementById('returnHomeAfterValidation'));
 emptyTheLocalStorage(document.querySelector('.headerLogo'));

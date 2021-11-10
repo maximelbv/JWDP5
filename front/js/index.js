@@ -1,7 +1,3 @@
-let baseHrefUrl = 'article.html?id=';
-let url = window.location;
-let params = (new URL(url)).searchParams;
-
 // Objet de test
 let testObject = {
     name : 'test name',
@@ -10,6 +6,9 @@ let testObject = {
     imageUrl : "https://via.placeholder.com/150x150",
     varnish : ['red', 'green', 'blue']
 };
+
+// string utilisée dans les liens menant vers les pages article
+let baseHrefUrl = 'article.html?id=';
 
 // Créé les balises html et affiche les éléments (res) dans le carrousel 
 // de la page d'accueil (index.html)
