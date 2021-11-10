@@ -130,5 +130,3 @@ regexCheck(checkoutCardCvc, regexCardCvc);
 regexCheck(checkoutAdress, regexAdress);
 regexCheck(checkoutPostalCode, regexPostalCode);
 regexCheck(checkoutCity, regexCity);
-
-
