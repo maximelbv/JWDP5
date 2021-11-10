@@ -1,9 +1,4 @@
-// stock l'objet converti depuis le JSON 'cart' du local storage
-let cart = JSON.parse(localStorage.getItem('cart'));
-
-// le tableau 'prices' va récupréer les prix et les additionner entre eux pour afficher le montant total
-let prices = [];
-
+// Objet de test
 let testObject = {
     name : 'test name',
     price : 12000,
@@ -11,6 +6,35 @@ let testObject = {
     imageUrl : "https://via.placeholder.com/150x150",
     varnish : ['red', 'green', 'blue']
 };
+
+// inputs html de la section checkout, utilisés dans les fonctions checkitems et regexCheck 
+let checkoutName = document.getElementById('checkoutInputName');
+let checkoutMail = document.getElementById('checkoutInputMail');
+let checkoutTel = document.getElementById('checkoutInputTel');
+let checkoutCardNumber = document.getElementById('checkoutInputCardNumber');
+let checkoutCardDate = document.getElementById('checkoutInputCardDate');
+let checkoutCardCvc = document.getElementById('checkoutInputCardCvc');
+let checkoutAdress = document.getElementById('checkoutInputAdress');
+let checkoutPostalCode = document.getElementById('checkoutInputPostalCode');
+let checkoutCity = document.getElementById('checkoutInputCity');
+
+// expressions régulières utilisés pour déterminer si les inputs du checkout sont valides 
+// en savoir plus sur les expressions régulières en JavaScript : https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/RegExp
+const regexName = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
+const regexMail = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+const regexTel = /^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$/;
+const regexCardNumber = /^[0-9]/;
+const regexCardDate = /^(0[1-9]|1[0-2])\/?(([0-9]{4}|[0-9]{2})$)/;
+const regexCardCvc = /^[0-9]{3,4}$/;
+const regexAdress = /\w+(\s\w+){2,}/;
+const regexPostalCode = /\d{2}[ ]?\d{3}/;
+const regexCity = /^[a-zA-Z',.\s-]{1,25}$/;
+
+// stock l'objet converti depuis le JSON 'cart' du local storage
+let cart = JSON.parse(localStorage.getItem('cart'));
+
+// le tableau 'prices' va récupérer les prix et les additionner entre eux pour afficher le montant total
+let prices = [];
 
 // Créé les balises html et affiche les éléments (res) dans le panier
 // de la page panier (cart.html)
@@ -72,46 +96,31 @@ function getCart() {
     }
 }
 
-getCart();
+// Si la valeur 'accept' de chaque input est 'true' alors on enlève l'attribut 'disabled' au bouton d'envoi de formulaire
+function checkInputs() {
+    if (checkoutName.accept && checkoutMail.accept && checkoutTel.accept && checkoutCardNumber.accept && checkoutCardDate.accept &&
+        checkoutCardCvc.accept && checkoutAdress.accept && checkoutPostalCode.accept && checkoutCity.accept) {
+        document.getElementById('CheckoutSubmit').removeAttribute('disabled');
+    }
+}
 
-let checkoutName = document.getElementById('checkoutInputName');
-
-let checkoutMail = document.getElementById('checkoutInputMail');
-let checkoutTel = document.getElementById('checkoutInputTel');
-
-let checkoutCardNumber = document.getElementById('checkoutInputCardNumber');
-let checkoutCardDate = document.getElementById('checkoutInputCardDate');
-let checkoutCardCvc = document.getElementById('checkoutInputCardCvc');
-
-let checkoutAdress = document.getElementById('checkoutInputAdress');
-let checkoutPostalCode = document.getElementById('checkoutInputPostalCode');
-let checkoutCity = document.getElementById('checkoutInputCity');
-
-const regexName = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
-const regexMail = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-const regexTel = /^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$/;
-const regexCardNumber = /^[0-9]/;
-const regexCardDate = /^(0[1-9]|1[0-2])\/?(([0-9]{4}|[0-9]{2})$)/;
-const regexCardCvc = /^[0-9]{3,4}$/;
-const regexAdress = /\w+(\s\w+){2,}/;
-const regexPostalCode = /\d{2}[ ]?\d{3}/;
-const regexCity = /^[a-zA-Z',.\s-]{1,25}$/;
-
-
+// Cette fonction vérifie si l'input entré en paramètre correspond au regex entré en paramètre.
 function regexCheck(input, regex) {
-    input.addEventListener('input', () => {
-        if (!input.value.match(regex)) {
-            input.classList.remove('validInput');
-            input.classList.add('invalidInput');
-            return false;
-        } else {
-            input.classList.remove('invalidInput');
-            input.classList.add('validInput');
-            return true;
+    input.addEventListener('input', () => {          // écoute les évènements de l'input,
+        if (input.value.match(regex)) {              // si la valeur entrée correspond au regex :
+            input.classList.add('validInput');       // ajoute des bordures vertes à l'input,
+            input.classList.remove('invalidInput');  // enlève les bordures rouges à l'input,
+            input.setAttribute('accept', 'true');    // donne l'attribut 'true' à la valeur 'accept' de l'input,
+            checkInputs();                           // lance la fonction checkInputs
+        } else {                                     // sinon
+            input.classList.add('invalidInput');     // ajoute des bordures rouges à l'input,
+            input.classList.remove('validInput');    // enlève les bordures vertes à l'input
         }
     })
 }
 
+// lance les fonctions au chargement de la pag
+getCart();
 regexCheck(checkoutName, regexName);
 regexCheck(checkoutMail, regexMail);
 regexCheck(checkoutTel, regexTel);
@@ -121,7 +130,5 @@ regexCheck(checkoutCardCvc, regexCardCvc);
 regexCheck(checkoutAdress, regexAdress);
 regexCheck(checkoutPostalCode, regexPostalCode);
 regexCheck(checkoutCity, regexCity);
-
-
 
 
