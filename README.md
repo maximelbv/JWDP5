@@ -50,6 +50,7 @@ icones : [FontAwesome](https://fontawesome.com/)
 | Fond (carrousel) | ![#C2DEE0](https://via.placeholder.com/10/C2DEE0?text=+) #C2DEE0 |
 | Fond (article) | ![#ADD4FF](https://via.placeholder.com/10/ADD4FF?text=+) #ADD4FF |
 | Liens | ![#6888f3](https://via.placeholder.com/10/6888f3?text=+) #6888f3 |
+| Boutons | ![#fbb03b](https://via.placeholder.com/10/fbb03b?text=+) #fbb03b |
 
 ## Architecture générale 
 
