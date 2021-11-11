@@ -524,6 +524,8 @@ a {
         }
     }
     &Input {
+        width: 95%;
+        position: relative;
         margin: 10px 0;
         padding: 15px;
         border: none;
@@ -535,6 +537,7 @@ a {
         &:focus {
             outline: none;
         }
+        
     }
     &Btn {
         @include btnTwo;
@@ -544,7 +547,11 @@ a {
 }
 
 .invalidInput {
-    border: 1.5px solid red;
+    &::after {
+        content: 'Mauvais format';
+        color: red;
+        display: inline-block;
+        }
 }
 
 .validInput {

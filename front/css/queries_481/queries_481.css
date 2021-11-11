@@ -58,6 +58,9 @@
     margin: 0;
     margin-bottom: 10px;
   }
+  .checkoutInput {
+    width: 90%;
+  }
   .mainConfirm, .mainCancel, .mainEmptyCart {
     margin: 0;
   }

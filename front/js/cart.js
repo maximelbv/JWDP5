@@ -50,6 +50,7 @@ function displayCartItems(res, val){
 
     let image = document.createElement('img');
     image.src = res.imageUrl;
+    image.setAttribute('alt', res.name);
     imageCtn.appendChild(image);
 
     let name = document.createElement('p');
@@ -106,15 +107,16 @@ function checkInputs() {
 
 // Cette fonction vérifie si l'input entré en paramètre correspond au regex entré en paramètre.
 function regexCheck(input, regex) {
-    input.addEventListener('input', () => {          // écoute les évènements de l'input,
-        if (input.value.match(regex)) {              // si la valeur entrée correspond au regex :
-            input.classList.add('validInput');       // ajoute des bordures vertes à l'input,
-            input.classList.remove('invalidInput');  // enlève les bordures rouges à l'input,
-            input.setAttribute('accept', 'true');    // donne l'attribut 'true' à la valeur 'accept' de l'input,
-            checkInputs();                           // lance la fonction checkInputs
-        } else {                                     // sinon
-            input.classList.add('invalidInput');     // ajoute des bordures rouges à l'input,
-            input.classList.remove('validInput');    // enlève les bordures vertes à l'input
+    let selector = 'div' + input.id;                                            // permets de récupérer l'id du conteneur de l'input en question
+    input.addEventListener('input', () => {                                     // écoute les évènements de l'input,
+        if (input.value.match(regex)) {                                         // si la valeur entrée correspond au regex :
+            input.classList.add('validInput');                                  // ajoute des bordures vertes à l'input,
+            document.getElementById(selector).classList.remove('invalidInput'); // enlève le message d'erreur au conteneur de l'input
+            input.setAttribute('accept', 'true');                               // donne l'attribut 'true' à la valeur 'accept' de l'input,
+            checkInputs();                                                      // lance la fonction checkInputs
+        } else {                                                                // sinon
+            document.getElementById(selector).classList.add('invalidInput');    // affiche le message d'erreur dans le conteneur de l'input
+            input.classList.remove('validInput');                               // enlève les bordures vertes à l'input
         }
     })
 }
@@ -130,3 +132,4 @@ regexCheck(checkoutCardCvc, regexCardCvc);
 regexCheck(checkoutAdress, regexAdress);
 regexCheck(checkoutPostalCode, regexPostalCode);
 regexCheck(checkoutCity, regexCity);
+

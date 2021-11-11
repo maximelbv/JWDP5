@@ -178,6 +178,9 @@ $screenSize : 1920px;
             margin: 0;
             margin-bottom: 10px;
         }
+        &Input {
+            width: 90%;
+        }
     }
    
     .mainConfirm, .mainCancel, .mainEmptyCart {

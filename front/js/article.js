@@ -22,6 +22,7 @@ function displayIdProduct(res){
 
     let img = document.querySelector('.articleImg');
     img.setAttribute('src', res.imageUrl);
+    img.setAttribute('alt', res.name);
     articleDisplay.appendChild(img);
 
     let name = document.createElement('p');

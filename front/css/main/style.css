@@ -508,6 +508,8 @@ a {
 }
 
 .checkoutInput {
+  width: 95%;
+  position: relative;
   margin: 10px 0;
   padding: 15px;
   border: none;
@@ -534,8 +536,10 @@ a {
   font-family: 'Raleway', sans-serif;
 }
 
-.invalidInput {
-  border: 1.5px solid red;
+.invalidInput::after {
+  content: 'Mauvais format';
+  color: red;
+  display: inline-block;
 }
 
 .validInput {

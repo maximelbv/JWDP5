@@ -41,6 +41,7 @@ function displayCarrousel(res) {
     let img = document.createElement('img');
     img.classList.add('carrouselItemImg');
     img.setAttribute('src', res.imageUrl);
+    img.setAttribute('alt', res.name);
     img.setAttribute('height', '70%');
     item.appendChild(img);
 }
@@ -65,6 +66,7 @@ function displayCatalog(res) {
 
     let img = document.createElement('img');
     img.classList.add('catalogListItemImg');
+    img.setAttribute('alt', res.name);
     img.setAttribute('width', '70%');
     img.src = res.imageUrl;
     card.appendChild(img)
