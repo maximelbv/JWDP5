@@ -278,6 +278,8 @@ a {
 }
 
 .displayArticleBtn {
+  border: none;
+  font-family: 'Raleway', sans-serif;
   margin-right: 10%;
   cursor: pointer;
   display: inline-block;
@@ -407,6 +409,7 @@ a {
 }
 
 .cartItem {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   width: 100%;
@@ -432,6 +435,18 @@ a {
 
 .cartItemName {
   text-align: center;
+}
+
+.cartItemDelete {
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+  border: none;
+  background-image: url("../../media/img/cross.png");
+  background-position: center;
+  background-size: cover;
+  width: 20px;
+  height: 20px;
 }
 
 .cartTotal {

@@ -369,6 +369,8 @@ a {
         }
     }
     &Btn {
+        border: none;
+        font-family: 'Raleway', sans-serif;
         margin-right: 10%;
         @include btnOne;
     }
@@ -447,6 +449,7 @@ a {
         width: 100%
     }
     &Item {
+        position: relative;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         width: 100%;
@@ -465,6 +468,17 @@ a {
         }
         &Name {
             text-align: center;
+        }
+        &Delete {
+            position: absolute;
+            right: 0;
+            cursor: pointer;
+            border: none;
+            background-image: url('../../media/img/cross.png');
+            background-position: center;
+            background-size: cover;
+            width: 20px;
+            height: 20px;
         }
     }
     &Total {

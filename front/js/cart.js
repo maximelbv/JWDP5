@@ -69,7 +69,11 @@ function displayCartItems(res, val){
 
     prices.push(val * (res.price / 100)); // ajoute le prix de l'article au tableau 'prices'
     const reducer = (acc, cur) => acc +cur;
-    let total = prices.reduce(reducer) // total = la somme du prix des articles;
+    let total = prices.reduce(reducer); // total = la somme du prix des articles;
+
+    let deleteCross = document.createElement('button');
+    deleteCross.classList.add('cartItemDelete');
+    item.appendChild(deleteCross);
 
     // affiche le prix total sur les éléments
     document.querySelector('.cartTotalValue').innerText = total + ' €';
@@ -82,8 +86,8 @@ function displayCartItems(res, val){
 // avec en paramètres les données récupérées de l'API
 function getCart() {
     if (cart) {                                                           
-        for (let i = 0; i< Object.keys(cart).length; i++) {              
-            fetch(`http://localhost:3000/api/furniture/${Object.keys(cart)[i]}`)
+        for (let i = 0; i< Object.keys(cart).length; i++) {   
+            fetch(`http://localhost:3000/api/furniture/${Object.values(cart)[i].id}`)
                 .then(res => {
                     if(res.ok) {
                         res.json().then(data => {
@@ -108,7 +112,8 @@ function checkInputs() {
 // Cette fonction vérifie si l'input entré en paramètre correspond au regex entré en paramètre.
 function regexCheck(input, regex) {
     let selector = 'div' + input.id;                                            // permets de récupérer l'id du conteneur de l'input en question
-    input.addEventListener('input', () => {                                     // écoute les évènements de l'input,
+    input.addEventListener('input', () => {   
+        console.log('test');                                // écoute les évènements de l'input,
         if (input.value.match(regex)) {                                         // si la valeur entrée correspond au regex :
             input.classList.add('validInput');                                  // ajoute des bordures vertes à l'input,
             document.getElementById(selector).classList.remove('invalidInput'); // enlève le message d'erreur au conteneur de l'input

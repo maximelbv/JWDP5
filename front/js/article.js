@@ -8,9 +8,30 @@ let testObject = {
     varnish : ['red', 'green', 'blue']
 };
 
+// variable qui va stocker la couleur sélectionnée par l'utilisateur
+var colorSelected;
+
+// bouton 'ajouter au panier'
+let addBtn = document.getElementById('displayArticleBtn');
+
 // paramètres de l'url, utilisés dans la fonction getIdProduct et addItem
 let url = window.location;
 let params = (new URL(url)).searchParams;
+
+// modèle pour les objets créés dans le 'cart' du local storage
+class cartProduct {
+    constructor(id, quantity, color) {
+        this.id = id;
+        this.quantity = quantity;
+        this.color = color;
+    }
+}
+
+// stock la couleur de background de l'élément en paramètre dans la variable 'colorSelected'
+// elle est lancée au clic des divs qui affichent les couleurs
+function getColor(color) {
+    colorSelected = color.style.background;
+}
 
 // Créé les balises / récupère les élements html et 
 // affiche les éléments (res) sur la page d'article (article.html)
@@ -44,7 +65,11 @@ function displayIdProduct(res){
         let color = document.createElement('div');   
         color.classList.add('informationsColorsColor');
         color.style.background = res.varnish[i];
+        color.setAttribute('onClick', 'getColor(this)');
         colorList.appendChild(color);
+        color.addEventListener('click', () => {
+            addBtn.removeAttribute('disabled');
+        })
     }
 }
 
@@ -62,24 +87,43 @@ function getIdProduct() {
     })
 }
 
-// fonction d'ajout d'article au panier 
+// Fonction d'ajout d'article au panier.
+// Elle vérifie plusieurs conditions et crée l'item / crée la valeur / incrémente la valeur.quantité en fonction de ces conditions.
+
+// 1 : crée une variable qui va être le nom de l'objet inséré dans le cart (sa valeur est une string de l'id de la page actuelle + la couleur sélectionnée par l'utilisateur)
+// 2 : crée une variable 'cart' qui va être la clé insérée dans le local storage
+// 3 : vérifie si la clé 'cart' existe dans le local storage :
+//         si oui : - traduit le 'cart' du local storage en JSON
+//                  - si l'objet existe déjà dans le cart : 
+//                          vérifie si la valeur 'color' est égale à la couleur sélectionnée
+//                              si oui : ajoute 1 à la quantité du produit
+//                              si non : crée un nouveau produit dans le cart    
+//                  - si non : crée un nouveau produit dans le cart
+//         si non : - défini le cart comme un objet vide,
+//                  - crée un nouveau produit dans le cart
+// 4 : ajoute le 'cart' au local storage
 function addItem() {
-    let id = params.get('id');
+    let id = `${params.get('id')}${colorSelected}`;
     let cart;
-    
-    if(localStorage.getItem('cart')) {                   // si le panier existe dans le local storage
-        cart = JSON.parse(localStorage.getItem('cart')); // parse le JSON du panier
-        if (cart[id]) {                                  // si l'idd e l'article est déjà présent dans le panier
-            cart[id] += 1;                               // incrémente sa valeur de 1
-        } else {                                         // sinon
-            cart[id] = 1;                                // ajoute l'id au panier avec la valeur de 1
+    if(localStorage.getItem('cart')) {                  
+        cart = JSON.parse(localStorage.getItem('cart'));
+        if (cart[id]) {     
+            if (cart[id].color === colorSelected) {
+                cart[id].quantity += 1; 
+            } else {
+                cart[id] = new cartProduct(params.get('id'), 1, colorSelected);
+            }                                           
+        } else {                                        
+            cart[id] = new cartProduct(params.get('id'), 1, colorSelected);                                  
         }
-    } else {                                             // sinon (si le panier n'existe pas dans le local storage)
-        cart = {};                                       // créé le panier ('cart')
-        cart[id] = 1;                                    // et ajoute l'id de l'élément séléctionné au panier avec la valeur de 1
+    } else {                                            
+        cart = {};                                     
+        cart[id] = new cartProduct(params.get('id'), 1, colorSelected);                           
     }
-    localStorage.setItem('cart', JSON.stringify(cart));  // stringify l'objet 'cart' (panier) et ajoute le au localStorage
+    localStorage.setItem('cart', JSON.stringify(cart)); 
 }
 
-document.getElementById('displayArticleBtn').addEventListener('click', addItem);
+addBtn.addEventListener('click', addItem);
 getIdProduct();
+
+
