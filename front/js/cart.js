@@ -38,7 +38,7 @@ let prices = [];
 
 // Créé les balises html et affiche les éléments (res) dans le panier
 // de la page panier (cart.html)
-function displayCartItems(res, val){
+function displayCartItems(res, qtt, color){
     let item = document.createElement('div');
     item.classList.add('cartItem');
     let container = document.querySelector('.cartItems');
@@ -58,16 +58,21 @@ function displayCartItems(res, val){
     name.classList.add('cartItemName');
     item.appendChild(name);
 
+    let selectedColor = document.createElement('div');
+    selectedColor.classList.add('cartItemColor');
+    selectedColor.style.background = color;
+    item.appendChild(selectedColor);
+
     let price = document.createElement('p');
-    price.innerText = ((res.price / 100) * val) + ' €'; // le prix est divisé par 100 pour le convertir en €
+    price.innerText = ((res.price / 100) * qtt) + ' €'; // le prix est divisé par 100 pour le convertir en €
     price.classList.add('cartItemPrice');
     item.appendChild(price);
 
     let quantity = document.createElement('p')
-    quantity.innerText = val;
+    quantity.innerText = qtt;
     item.appendChild(quantity);
 
-    prices.push(val * (res.price / 100)); // ajoute le prix de l'article au tableau 'prices'
+    prices.push(qtt * (res.price / 100)); // ajoute le prix de l'article au tableau 'prices'
     const reducer = (acc, cur) => acc +cur;
     let total = prices.reduce(reducer); // total = la somme du prix des articles;
 
@@ -91,7 +96,7 @@ function getCart() {
                 .then(res => {
                     if(res.ok) {
                         res.json().then(data => {
-                            displayCartItems(data, Object.values(cart)[i]);
+                            displayCartItems(data, Object.values(cart)[i].quantity, Object.values(cart)[i].color );
                         });
                     } else {
                         console.log('Error');

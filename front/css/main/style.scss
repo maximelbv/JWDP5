@@ -451,7 +451,7 @@ a {
     &Item {
         position: relative;
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(5, 1fr);
         width: 100%;
         margin: 10px 0;
         & * {
@@ -469,9 +469,22 @@ a {
         &Name {
             text-align: center;
         }
+        &Color {
+            @include shineConditions;
+            @include shine;
+            cursor: pointer;
+            margin: 0 10px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50px;
+            box-shadow: $boxShadow;
+            align-self: center;
+            justify-self: center;
+        }
         &Delete {
             position: absolute;
             right: 0;
+            top: 20px;
             cursor: pointer;
             border: none;
             background-image: url('../../media/img/cross.png');
