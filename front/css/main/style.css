@@ -372,6 +372,11 @@ a {
   margin-top: 100px;
 }
 
+#selectedColor {
+  position: relative;
+  border: 3px solid #6888f3;
+}
+
 /* MAIN CART */
 .cartMain {
   max-width: 1920px;
@@ -478,6 +483,7 @@ a {
   top: 20px;
   cursor: pointer;
   border: none;
+  background-color: white;
   background-image: url("../../media/img/cross.png");
   background-position: center;
   background-size: cover;

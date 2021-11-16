@@ -68,6 +68,10 @@ function displayIdProduct(res){
         color.setAttribute('onClick', 'getColor(this)');
         colorList.appendChild(color);
         color.addEventListener('click', () => {
+            document.querySelectorAll('.informationsColorsColor').forEach(color => {
+                color.removeAttribute('id', 'selectedColor');
+            })
+            color.setAttribute('id', 'selectedColor'); 
             addBtn.removeAttribute('disabled');
         })
     }

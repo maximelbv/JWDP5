@@ -36,6 +36,22 @@ let cart = JSON.parse(localStorage.getItem('cart'));
 // le tableau 'prices' va récupérer les prix et les additionner entre eux pour afficher le montant total
 let prices = [];
 
+function removeItem(btn, item, res, color) {
+    btn.addEventListener('click', () => {
+        item.remove()
+        for (let i = 0; i< Object.values(cart).length; i++) {
+            let storageItem = `${Object.values(cart)[i].id}${Object.values(cart)[i].color}`;
+            if (`${res._id}${color}` == storageItem) {
+                console.log(Object.values(cart)[i]);
+                delete Object.values(cart)[i];
+                localStorage.removeItem(Object.values(cart)[i]);
+                // JSON.stringify(cart);
+                // localStorage.setItem(cart, );
+            }
+        }
+    })
+}
+
 // Créé les balises html et affiche les éléments (res) dans le panier
 // de la page panier (cart.html)
 function displayCartItems(res, qtt, color){
@@ -78,12 +94,13 @@ function displayCartItems(res, qtt, color){
 
     let deleteCross = document.createElement('button');
     deleteCross.classList.add('cartItemDelete');
+    deleteCross.setAttribute('id', 'cartItemDelete');
     item.appendChild(deleteCross);
+    removeItem(deleteCross, item, res, color);
 
     // affiche le prix total sur les éléments
     document.querySelector('.cartTotalValue').innerText = total + ' €';
     document.querySelector('.checkoutBtn').setAttribute('value', `Payer ${total} €`);
-
 }
 
 // Si le panier existe: boucle les données de 'cart' et pour chaque donnée:
@@ -96,7 +113,7 @@ function getCart() {
                 .then(res => {
                     if(res.ok) {
                         res.json().then(data => {
-                            displayCartItems(data, Object.values(cart)[i].quantity, Object.values(cart)[i].color );
+                            displayCartItems(data, Object.values(cart)[i].quantity, Object.values(cart)[i].color);
                         });
                     } else {
                         console.log('Error');
@@ -117,8 +134,7 @@ function checkInputs() {
 // Cette fonction vérifie si l'input entré en paramètre correspond au regex entré en paramètre.
 function regexCheck(input, regex) {
     let selector = 'div' + input.id;                                            // permets de récupérer l'id du conteneur de l'input en question
-    input.addEventListener('input', () => {   
-        console.log('test');                                // écoute les évènements de l'input,
+    input.addEventListener('input', () => {                                     // écoute les évènements de l'input,
         if (input.value.match(regex)) {                                         // si la valeur entrée correspond au regex :
             input.classList.add('validInput');                                  // ajoute des bordures vertes à l'input,
             document.getElementById(selector).classList.remove('invalidInput'); // enlève le message d'erreur au conteneur de l'input
@@ -142,4 +158,3 @@ regexCheck(checkoutCardCvc, regexCardCvc);
 regexCheck(checkoutAdress, regexAdress);
 regexCheck(checkoutPostalCode, regexPostalCode);
 regexCheck(checkoutCity, regexCity);
-

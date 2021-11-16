@@ -16,6 +16,7 @@ $bgColorGrey : #F5F5F5;
 $borderColor :#E9EBF3;
 $orinocoLinkColor : #6888f3;
 $bgArticle : #ADD4FF;
+$orinocoOrange : #FBB03B;
 
 // Font-size variables
 $fontSizeS : 18px;
@@ -68,7 +69,7 @@ $screenSize : 1920px;
 @mixin btnTwo {
     cursor: pointer;
     display: inline-block;
-    background: #FBB03B;
+    background: $orinocoOrange;
     padding: 20px 70px;
     border-radius: 50px;
     font-size: $fontSizeS;
@@ -418,6 +419,11 @@ a {
     }
 }
 
+#selectedColor {
+    position: relative;
+    border: 3px solid $orinocoLinkColor;
+}
+
 /* MAIN CART */
 
 // Composed of 2 main containers : cart & checkout form
@@ -487,6 +493,7 @@ a {
             top: 20px;
             cursor: pointer;
             border: none;
+            background-color: white;
             background-image: url('../../media/img/cross.png');
             background-position: center;
             background-size: cover;
