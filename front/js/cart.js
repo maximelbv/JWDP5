@@ -37,19 +37,22 @@ let cart = JSON.parse(localStorage.getItem('cart'));
 let prices = [];
 
 function removeItem(btn, item, res, color) {
-    btn.addEventListener('click', () => {
-        item.remove()
+    btn.addEventListener('click', () => {  
         for (let i = 0; i< Object.values(cart).length; i++) {
             let storageItem = `${Object.values(cart)[i].id}${Object.values(cart)[i].color}`;
             if (`${res._id}${color}` == storageItem) {
-                console.log(Object.values(cart)[i]);
-                delete Object.values(cart)[i];
-                localStorage.removeItem(Object.values(cart)[i]);
-                // JSON.stringify(cart);
-                // localStorage.setItem(cart, );
+                delete cart[`${res._id}${color}`];
+                cart = JSON.stringify(cart);
+                localStorage.setItem('cart', cart);
             }
         }
+        if (cart.length > 2) {
+            window.location.reload();  
+        } else {
+            window.location.replace("../html/emptyCart.html");
+        }
     })
+    
 }
 
 // Créé les balises html et affiche les éléments (res) dans le panier
