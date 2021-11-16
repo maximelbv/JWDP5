@@ -18,6 +18,19 @@ let checkoutAdress = document.getElementById('checkoutInputAdress');
 let checkoutPostalCode = document.getElementById('checkoutInputPostalCode');
 let checkoutCity = document.getElementById('checkoutInputCity');
 
+// Vérifie si tout les inputs du formulaire sont corrects
+let inputChecker = {
+    name : false,
+    mail : false,
+    tel : false,
+    cardNumber : false,
+    cardDate : false,
+    cardCvc : false,
+    adress : false,
+    postalCode : false,
+    city : false 
+}
+
 // expressions régulières utilisés pour déterminer si les inputs du checkout sont valides 
 // en savoir plus sur les expressions régulières en JavaScript : https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/RegExp
 const regexName = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
@@ -36,7 +49,7 @@ let cart = JSON.parse(localStorage.getItem('cart'));
 // le tableau 'prices' va récupérer les prix et les additionner entre eux pour afficher le montant total
 let prices = [];
 
-function removeItem(btn, item, res, color) {
+function removeItem(btn, res, color) {
     btn.addEventListener('click', () => {  
         for (let i = 0; i< Object.values(cart).length; i++) {
             let storageItem = `${Object.values(cart)[i].id}${Object.values(cart)[i].color}`;
@@ -128,36 +141,37 @@ function getCart() {
 
 // Si la valeur 'accept' de chaque input est 'true' alors on enlève l'attribut 'disabled' au bouton d'envoi de formulaire
 function checkInputs() {
-    if (checkoutName.accept && checkoutMail.accept && checkoutTel.accept && checkoutCardNumber.accept && checkoutCardDate.accept &&
-        checkoutCardCvc.accept && checkoutAdress.accept && checkoutPostalCode.accept && checkoutCity.accept) {
+    if (inputChecker.name && inputChecker.mail && inputChecker.tel && inputChecker.cardNumber && inputChecker.cardDate &&
+        inputChecker.cardCvc && inputChecker.adress && inputChecker.postalCode && inputChecker.city) {
         document.getElementById('CheckoutSubmit').removeAttribute('disabled');
     }
 }
 
 // Cette fonction vérifie si l'input entré en paramètre correspond au regex entré en paramètre.
-function regexCheck(input, regex) {
+function regexCheck(input, regex, check) {
     let selector = 'div' + input.id;                                            // permets de récupérer l'id du conteneur de l'input en question
     input.addEventListener('input', () => {                                     // écoute les évènements de l'input,
         if (input.value.match(regex)) {                                         // si la valeur entrée correspond au regex :
             input.classList.add('validInput');                                  // ajoute des bordures vertes à l'input,
             document.getElementById(selector).classList.remove('invalidInput'); // enlève le message d'erreur au conteneur de l'input
-            input.setAttribute('accept', 'true');                               // donne l'attribut 'true' à la valeur 'accept' de l'input,
+            inputChecker[check] = true;                                         // ajoute la valeur 'true' à la donnée de l'objet inputChecker
             checkInputs();                                                      // lance la fonction checkInputs
         } else {                                                                // sinon
             document.getElementById(selector).classList.add('invalidInput');    // affiche le message d'erreur dans le conteneur de l'input
             input.classList.remove('validInput');                               // enlève les bordures vertes à l'input
         }
+
     })
 }
 
 // lance les fonctions au chargement de la page
 getCart();
-regexCheck(checkoutName, regexName);
-regexCheck(checkoutMail, regexMail);
-regexCheck(checkoutTel, regexTel);
-regexCheck(checkoutCardNumber, regexCardNumber);
-regexCheck(checkoutCardDate, regexCardDate);
-regexCheck(checkoutCardCvc, regexCardCvc);
-regexCheck(checkoutAdress, regexAdress);
-regexCheck(checkoutPostalCode, regexPostalCode);
-regexCheck(checkoutCity, regexCity);
+regexCheck(checkoutName, regexName, 'name');
+regexCheck(checkoutMail, regexMail, 'mail');
+regexCheck(checkoutTel, regexTel, 'tel');
+regexCheck(checkoutCardNumber, regexCardNumber, 'cardNumber');
+regexCheck(checkoutCardDate, regexCardDate, 'cardDate');
+regexCheck(checkoutCardCvc, regexCardCvc, 'cardCvc');
+regexCheck(checkoutAdress, regexAdress, 'adress');
+regexCheck(checkoutPostalCode, regexPostalCode, 'postalCode');
+regexCheck(checkoutCity, regexCity, 'city');
