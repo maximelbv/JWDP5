@@ -64,8 +64,26 @@ function removeItem(btn, res, color) {
         } else {
             window.location.replace("../html/emptyCart.html");
         }
-    })
-    
+    })   
+}
+
+function incrementItem(input, res, color) {
+    input.addEventListener('input', () => {  
+        for (let i = 0; i< Object.values(cart).length; i++) {
+            let storageItem = `${Object.values(cart)[i].id}${Object.values(cart)[i].color}`;
+            
+            if (`${res._id}${color}` == storageItem) {
+                cart[`${res._id}${color}`].quantity = input.value;
+                cart = JSON.stringify(cart);
+                localStorage.setItem('cart', cart);
+            }
+        }
+        if (cart.length > 2) {
+            window.location.reload();  
+        } else {
+            window.location.replace("../html/emptyCart.html");
+        }
+    })   
 }
 
 // Créé les balises html et affiche les éléments (res) dans le panier
@@ -100,8 +118,12 @@ function displayCartItems(res, qtt, color){
     price.classList.add('cartItemPrice');
     item.appendChild(price);
 
-    let quantity = document.createElement('p')
-    quantity.innerText = qtt;
+    let quantity = document.createElement('input')
+    quantity.classList.add('cartItemQtt');
+    quantity.setAttribute('type', 'number');
+    quantity.setAttribute('min', '1');
+    quantity.setAttribute('max', '10');
+    quantity.value = qtt;
     item.appendChild(quantity);
 
     prices.push(qtt * (res.price / 100)); // ajoute le prix de l'article au tableau 'prices'
@@ -112,7 +134,8 @@ function displayCartItems(res, qtt, color){
     deleteCross.classList.add('cartItemDelete');
     deleteCross.setAttribute('id', 'cartItemDelete');
     item.appendChild(deleteCross);
-    removeItem(deleteCross, item, res, color);
+    removeItem(deleteCross, res, color);
+    incrementItem(quantity, res, color);
 
     // affiche le prix total sur les éléments
     document.querySelector('.cartTotalValue').innerText = total + ' €';

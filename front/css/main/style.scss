@@ -487,6 +487,16 @@ a {
             align-self: center;
             justify-self: center;
         }
+        &Qtt {
+            width: 40px;
+            height: 30px;
+            padding: 0 5px;
+            border: 2px solid $bgColorGrey;
+            box-shadow: $boxShadow;
+            align-self: center;
+            font-family: 'Raleway', sans-serif;
+            font-size: 20px;
+        }
         &Delete {
             position: absolute;
             right: 0;
