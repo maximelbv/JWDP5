@@ -642,6 +642,10 @@ a {
   z-index: -1;
 }
 
+.mainConfirmId {
+  margin-bottom: 20px;
+}
+
 .mainCancel {
   max-width: 1920px;
   margin: auto;

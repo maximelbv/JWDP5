@@ -608,6 +608,9 @@ a {
     @include displayInfo;
     position: relative;
     padding-bottom: 10%;
+    &Id {
+        margin-bottom: 20px;
+    }
 }
 
 .mainCancel {@include displayInfo;}

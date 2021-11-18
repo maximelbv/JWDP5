@@ -46,8 +46,19 @@ const regexCity = /^[a-zA-Z',.\s-]{1,25}$/;
 // stock l'objet converti depuis le JSON 'cart' du local storage
 let cart = JSON.parse(localStorage.getItem('cart'));
 
+let submitBtn = document.getElementById('CheckoutSubmit');
+
 // le tableau 'prices' va récupérer les prix et les additionner entre eux pour afficher le montant total
 let prices = [];
+
+let products = [];
+// for(item of Object.keys(cart)) {products.push(item)};
+
+for (let i = 0; i < Object.keys(cart).length; i++) {
+    products.push(Object.values(cart)[i].id);
+}
+
+var orderInfos = {};
 
 function removeItem(btn, res, color) {
     btn.addEventListener('click', () => {  
@@ -139,7 +150,7 @@ function displayCartItems(res, qtt, color){
 
     // affiche le prix total sur les éléments
     document.querySelector('.cartTotalValue').innerText = total + ' €';
-    document.querySelector('.checkoutBtn').setAttribute('value', `Payer ${total} €`);
+    submitBtn.setAttribute('value', `Payer ${total} €`);
 }
 
 // Si le panier existe: boucle les données de 'cart' et pour chaque donnée:
@@ -162,11 +173,16 @@ function getCart() {
     }
 }
 
+
+
+
+
 // Si la valeur 'accept' de chaque input est 'true' alors on enlève l'attribut 'disabled' au bouton d'envoi de formulaire
 function checkInputs() {
     if (inputChecker.name && inputChecker.mail && inputChecker.tel && inputChecker.cardNumber && inputChecker.cardDate &&
         inputChecker.cardCvc && inputChecker.adress && inputChecker.postalCode && inputChecker.city) {
-        document.getElementById('CheckoutSubmit').removeAttribute('disabled');
+        submitBtn.removeAttribute('disabled');
+        
     }
 }
 
@@ -178,12 +194,43 @@ function regexCheck(input, regex, check) {
             input.classList.add('validInput');                                  // ajoute des bordures vertes à l'input,
             document.getElementById(selector).classList.remove('invalidInput'); // enlève le message d'erreur au conteneur de l'input
             inputChecker[check] = true;                                         // ajoute la valeur 'true' à la donnée de l'objet inputChecker
+
+            orderInfos = {
+                contact: {
+                    firstName: checkoutName.value,
+                    lastName: checkoutName.value,
+                    address: checkoutAdress.value,
+                    city: checkoutCity.value,
+                    email: checkoutMail.value
+                  },
+                  products: products
+            }
+
             checkInputs();                                                      // lance la fonction checkInputs
         } else {                                                                // sinon
             document.getElementById(selector).classList.add('invalidInput');    // affiche le message d'erreur dans le conteneur de l'input
             input.classList.remove('validInput');                               // enlève les bordures vertes à l'input
         }
 
+    })
+}
+
+function postData(triger) {
+    triger.addEventListener('click', () => {
+        fetch('http://localhost:3000/api/furniture/order', {
+            method : 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body : JSON.stringify(orderInfos)
+        })
+        .then(res => {return res.json()})
+        .then(data => {
+            // console.log(data.orderId);
+            // localStorage.setItem('order', JSON.stringify(data))
+            window.location.assign(`validation.html?id=${data.orderId}`);
+            console.log('test');
+        });
     })
 }
 
@@ -198,3 +245,4 @@ regexCheck(checkoutCardCvc, regexCardCvc, 'cardCvc');
 regexCheck(checkoutAdress, regexAdress, 'adress');
 regexCheck(checkoutPostalCode, regexPostalCode, 'postalCode');
 regexCheck(checkoutCity, regexCity, 'city');
+postData(document.querySelector('.cart'));
