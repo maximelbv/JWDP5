@@ -43,6 +43,8 @@ const regexAdress = /\w+(\s\w+){2,}/;
 const regexPostalCode = /\d{2}[ ]?\d{3}/;
 const regexCity = /^[a-zA-Z',.\s-]{1,25}$/;
 
+let baseHrefUrl = 'validation.html?id='
+
 // stock l'objet converti depuis le JSON 'cart' du local storage
 let cart = JSON.parse(localStorage.getItem('cart'));
 
@@ -150,7 +152,7 @@ function displayCartItems(res, qtt, color){
 
     // affiche le prix total sur les éléments
     document.querySelector('.cartTotalValue').innerText = total + ' €';
-    submitBtn.setAttribute('value', `Payer ${total} €`);
+    submitBtn.innerText = `Payer ${total} €`;
 }
 
 // Si le panier existe: boucle les données de 'cart' et pour chaque donnée:
@@ -182,7 +184,6 @@ function checkInputs() {
     if (inputChecker.name && inputChecker.mail && inputChecker.tel && inputChecker.cardNumber && inputChecker.cardDate &&
         inputChecker.cardCvc && inputChecker.adress && inputChecker.postalCode && inputChecker.city) {
         submitBtn.removeAttribute('disabled');
-        
     }
 }
 
@@ -194,8 +195,7 @@ function regexCheck(input, regex, check) {
             input.classList.add('validInput');                                  // ajoute des bordures vertes à l'input,
             document.getElementById(selector).classList.remove('invalidInput'); // enlève le message d'erreur au conteneur de l'input
             inputChecker[check] = true;                                         // ajoute la valeur 'true' à la donnée de l'objet inputChecker
-
-            orderInfos = {
+            orderInfos = {                                                      // update les informations qui vont être stockées dans le POST de l'API
                 contact: {
                     firstName: checkoutName.value,
                     lastName: checkoutName.value,
@@ -205,7 +205,6 @@ function regexCheck(input, regex, check) {
                   },
                   products: products
             }
-
             checkInputs();                                                      // lance la fonction checkInputs
         } else {                                                                // sinon
             document.getElementById(selector).classList.add('invalidInput');    // affiche le message d'erreur dans le conteneur de l'input
@@ -226,10 +225,7 @@ function postData(triger) {
         })
         .then(res => {return res.json()})
         .then(data => {
-            // console.log(data.orderId);
-            // localStorage.setItem('order', JSON.stringify(data))
             window.location.assign(`validation.html?id=${data.orderId}`);
-            console.log('test');
         });
     })
 }
@@ -245,4 +241,4 @@ regexCheck(checkoutCardCvc, regexCardCvc, 'cardCvc');
 regexCheck(checkoutAdress, regexAdress, 'adress');
 regexCheck(checkoutPostalCode, regexPostalCode, 'postalCode');
 regexCheck(checkoutCity, regexCity, 'city');
-postData(document.querySelector('.cart'));
+postData(submitBtn);
