@@ -8,7 +8,7 @@ let testObject = {
     varnish : ['red', 'green', 'blue']
 };
 
-// variable qui va stocker la couleur sélectionnée par l'utilisateur
+// va stocker la couleur sélectionnée par l'utilisateur
 var colorSelected;
 
 // bouton 'ajouter au panier'
@@ -65,9 +65,9 @@ function displayIdProduct(res){
         let color = document.createElement('div');   
         color.classList.add('informationsColorsColor');
         color.style.background = res.varnish[i];
-        color.setAttribute('onClick', 'getColor(this)');
+        color.setAttribute('onClick', 'getColor(this)'); // au clic, lance la fonction 'getColor' qui va récupérer la couleur de fond et la stocker dans 'selectedColor'
         colorList.appendChild(color);
-        color.addEventListener('click', () => {
+        color.addEventListener('click', () => {  // ajoute des bordures a la couleur sélectionnée, et active le bouton d'ajout au panier
             document.querySelectorAll('.informationsColorsColor').forEach(color => {
                 color.removeAttribute('id', 'selectedColor');
             })

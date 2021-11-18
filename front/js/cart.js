@@ -18,7 +18,7 @@ let checkoutAdress = document.getElementById('checkoutInputAdress');
 let checkoutPostalCode = document.getElementById('checkoutInputPostalCode');
 let checkoutCity = document.getElementById('checkoutInputCity');
 
-// Vérifie si tout les inputs du formulaire sont corrects
+// Objet de vérification des inputs du formulaire de checkout
 let inputChecker = {
     name : false,
     mail : false,
@@ -32,7 +32,6 @@ let inputChecker = {
 }
 
 // expressions régulières utilisés pour déterminer si les inputs du checkout sont valides 
-// en savoir plus sur les expressions régulières en JavaScript : https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/RegExp
 const regexName = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
 const regexMail = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 const regexTel = /^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$/;
@@ -43,25 +42,29 @@ const regexAdress = /\w+(\s\w+){2,}/;
 const regexPostalCode = /\d{2}[ ]?\d{3}/;
 const regexCity = /^[a-zA-Z',.\s-]{1,25}$/;
 
-let baseHrefUrl = 'validation.html?id='
-
-// stock l'objet converti depuis le JSON 'cart' du local storage
+// stock et parse l'objet 'cart' du local storage
 let cart = JSON.parse(localStorage.getItem('cart'));
 
+// bouton d'envoi du formulaire de checkout
 let submitBtn = document.getElementById('CheckoutSubmit');
 
 // le tableau 'prices' va récupérer les prix et les additionner entre eux pour afficher le montant total
 let prices = [];
 
+// le tableau 'products' va récupérer les id du 'cart' dans le local storage
+// il va en suite être appelé dans l'objet 'orderInfos'
 let products = [];
-// for(item of Object.keys(cart)) {products.push(item)};
-
 for (let i = 0; i < Object.keys(cart).length; i++) {
     products.push(Object.values(cart)[i].id);
 }
 
+// Objet qui va être envoyé dans le POST du fetch API (fonction 'postData')
 var orderInfos = {};
 
+// Supprime l'élément sélectionné au clic du bouton
+
+// Au clic du bouton de supression : boucle les valeurs de 'cart' et si l'id d'une de ces valeurs est égale 
+// à l'id de l'article en question,supprime cet article du local storage
 function removeItem(btn, res, color) {
     btn.addEventListener('click', () => {  
         for (let i = 0; i< Object.values(cart).length; i++) {
@@ -72,14 +75,19 @@ function removeItem(btn, res, color) {
                 localStorage.setItem('cart', cart);
             }
         }
-        if (cart.length > 2) {
+        if (cart.length > 2) {  // quand l'objet 'cart' est vide, la longeur de sa string est de 2 et non 0 car les accolades restent tant que l'objet existe 
             window.location.reload();  
         } else {
+            localStorage.removeItem('cart');
             window.location.replace("../html/emptyCart.html");
         }
     })   
 }
 
+// change la valeur 'quantity' de l'élément sélectionné à la valeur sélectionnée dans l'input
+
+// Au changement de valeur de l'input: boucle les valeurs de 'cart' et si l'id d'une de ces valeurs est égale 
+// à l'id de l'article en question,change la valeur 'quantité' de cet article à la valeur séléctionnée dans l'input
 function incrementItem(input, res, color) {
     input.addEventListener('input', () => {  
         for (let i = 0; i< Object.values(cart).length; i++) {
@@ -94,6 +102,7 @@ function incrementItem(input, res, color) {
         if (cart.length > 2) {
             window.location.reload();  
         } else {
+            localStorage.removeItem('cart');
             window.location.replace("../html/emptyCart.html");
         }
     })   
@@ -179,7 +188,7 @@ function getCart() {
 
 
 
-// Si la valeur 'accept' de chaque input est 'true' alors on enlève l'attribut 'disabled' au bouton d'envoi de formulaire
+// Si toutes les valeurs de l'objet 'inputChecker' sont 'true' alors enlève l'attribut 'disabled' au bouton d'envoi de formulaire
 function checkInputs() {
     if (inputChecker.name && inputChecker.mail && inputChecker.tel && inputChecker.cardNumber && inputChecker.cardDate &&
         inputChecker.cardCvc && inputChecker.adress && inputChecker.postalCode && inputChecker.city) {
@@ -187,7 +196,7 @@ function checkInputs() {
     }
 }
 
-// Cette fonction vérifie si l'input entré en paramètre correspond au regex entré en paramètre.
+// Vérifie si l'input entré en paramètre correspond au regex entré en paramètre.
 function regexCheck(input, regex, check) {
     let selector = 'div' + input.id;                                            // permets de récupérer l'id du conteneur de l'input en question
     input.addEventListener('input', () => {                                     // écoute les évènements de l'input,
@@ -214,6 +223,8 @@ function regexCheck(input, regex, check) {
     })
 }
 
+// Au clic du bouton (triger) fais un fetch de type POST avec l'objet 'orderInfos'
+// puis fais une redirection vers la page de validation avec en paramètre l'orderId
 function postData(triger) {
     triger.addEventListener('click', () => {
         fetch('http://localhost:3000/api/furniture/order', {

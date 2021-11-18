@@ -1,10 +1,7 @@
 let url = window.location;
 let params = (new URL(url)).searchParams;
 
-console.log(params.get('id'));
-
 document.querySelector('.mainConfirmId').innerHTML = params.get('id');
-
 
 // au clic de l'élément (btn) vide le local storage
 function emptyTheLocalStorage (btn) {
