@@ -1,6 +1,5 @@
-![alt text](https://github.com/maximelbv/MaximeLefebvre_5_300921/blob/master/front/media/img/logo.png?raw=true)
+![image](https://user-images.githubusercontent.com/58565963/167068263-f4ac2812-d678-488d-bf7b-25976485437c.png)
 
-# Orinoco
 5ème projet de la formation 'Développeur Web' OpenClassrooms.<br>
 L'objectif est de créer la partie frontend d'un site e-commerce de meubles à l'aide de l'API fournie.
 
